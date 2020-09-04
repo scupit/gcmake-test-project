@@ -1,21 +1,21 @@
 ################################################################################
-# Generated with Skylar Cupit's json-to-cmake tool                             #
-# GitHub: https://github.com/scupit/json-to-cmake-rewrite                      #
+# Generated with Skylar Cupit's json-to-cmake tool
+# Github: https://github.com/scupit/json-to-cmake
 ################################################################################
 
 cmake_minimum_required( VERSION 3.12 )
-project( _cpp_root_project_ )
+project( _cpp_root_project_ LANGUAGES C CXX )
 
 # ////////////////////////////////////////////////////////////////////////////////
 # LANGUAGE STANDARDS
 # ////////////////////////////////////////////////////////////////////////////////
 
-set( CMAKE_C_STANDARD 99 CACHE STRING "C compiler standard year" )
+set( CMAKE_C_STANDARD 99 CACHE STRING "C compiler standard" )
 set_property( CACHE CMAKE_C_STANDARD PROPERTY STRINGS 99 )
 message( "Using C compiler standard --std=c${CMAKE_C_STANDARD}" )
 
-set( CMAKE_CXX_STANDARD 11 CACHE STRING "CXX compiler standard year" )
-set_property( CACHE CMAKE_CXX_STANDARD PROPERTY STRINGS 11 )
+set( CMAKE_CXX_STANDARD 17 CACHE STRING "CXX compiler standard" )
+set_property( CACHE CMAKE_CXX_STANDARD PROPERTY STRINGS 17 )
 message( "Using CXX compiler standard --std=c++${CMAKE_CXX_STANDARD}" )
 
 set( CMAKE_C_STANDARD_REQUIRED ON )
@@ -29,7 +29,6 @@ set( CMAKE_CXX_EXTENSIONS OFF )
 # ////////////////////////////////////////////////////////////////////////////////
 
 set_property( CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS "Debug" "Release" )
-
 if( "${CMAKE_BUILD_TYPE}" STREQUAL "" )
 	set( CMAKE_BUILD_TYPE "Debug" CACHE STRING "Project Configuration" FORCE )
 endif()
@@ -38,8 +37,8 @@ if( "${CMAKE_BUILD_TYPE}" STREQUAL "Debug" )
 	set( CMAKE_CXX_FLAGS "-g -Wall -Wextra -Wconversion -Wuninitialized -pedantic -pedantic-errors " )
 	set( CMAKE_C_FLAGS "-g -Wall -Wextra -Wconversion -Wuninitialized -pedantic -pedantic-errors " )
 elseif( "${CMAKE_BUILD_TYPE}" STREQUAL "Release" )
-	set( CMAKE_CXX_FLAGS "-O2 -s " )
-	set( CMAKE_C_FLAGS "-O2 -s " )
+	set( CMAKE_CXX_FLAGS "-O2 -s -static-libgcc -static-libstdc++ -mwindows " )
+	set( CMAKE_C_FLAGS "-O2 -s -static-libgcc -static-libstdc++ -mwindows " )
 	add_compile_definitions( NDEBUG )
 endif()
 
@@ -47,13 +46,10 @@ message( "Using compiler flags: ${CMAKE_CXX_FLAGS}" )
 message( "Building project '${CMAKE_BUILD_TYPE}' configuration" )
 
 # ////////////////////////////////////////////////////////////////////////////////
-# OUTPUT EXECUTABLES 
+# INDIVIDUAL OUTPUT EXECUTABLES
 # ////////////////////////////////////////////////////////////////////////////////
 
 # Output executable: _cpp_base_executable_
-set( _cpp_base_executable__HEADERS
-)
-
 set( _cpp_base_executable__SOURCES
 	${PROJECT_SOURCE_DIR}/main.cpp
 )
