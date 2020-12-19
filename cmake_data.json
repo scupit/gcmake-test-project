@@ -1,5 +1,5 @@
 {
-    "defaultCppStandard": "17",
+    "defaultCppStandard": "20",
 
     "output": {
         "_cpp_base_executable_": {
