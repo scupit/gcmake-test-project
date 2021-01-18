@@ -20,7 +20,8 @@
                 "-Wconversion",
                 "-Wuninitialized",
                 "-pedantic",
-                "-pedantic-errors"
+                "-pedantic-errors",
+                "-fanalyzer"
             ]
         },
 
@@ -29,8 +30,7 @@
                 "-O2",
                 "-s",
                 "-static-libgcc",
-                "-static-libstdc++",
-                "-mwindows"
+                "-static-libstdc++"
             ],
             "defines": [
                 "NDEBUG"
