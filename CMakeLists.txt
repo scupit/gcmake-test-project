@@ -28,17 +28,69 @@ set( CMAKE_CXX_EXTENSIONS OFF )
 # BUILD TARGETS
 # ////////////////////////////////////////////////////////////////////////////////
 
-set_property( CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS "Debug" "Release" )
+set_property( CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS "Debug" "Release" "Size-Optimized-Release" )
 if( "${CMAKE_BUILD_TYPE}" STREQUAL "" )
 	set( CMAKE_BUILD_TYPE "Debug" CACHE STRING "Project Configuration" FORCE )
 endif()
 
 if( "${CMAKE_BUILD_TYPE}" STREQUAL "Debug" )
-	set( CMAKE_CXX_FLAGS "-g -Wall -Wextra -Wconversion -Wuninitialized -pedantic -pedantic-errors -fanalyzer " )
-	set( CMAKE_C_FLAGS "-g -Wall -Wextra -Wconversion -Wuninitialized -pedantic -pedantic-errors -fanalyzer " )
+	set( CMAKE_CXX_FLAGS "" )
+	set( CMAKE_C_FLAGS "" )
+
+	if ( ${CMAKE_C_COMPILER_ID} STREQUAL "GNU" OR ${CMAKE_CXX_COMPILER_ID} STREQUAL "GNU" )
+		set( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Og -g -Wall -Wextra -Wconversion -Wuninitialized -pedantic -pedantic-errors -fanalyzer " )
+		set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Og -g -Wall -Wextra -Wconversion -Wuninitialized -pedantic -pedantic-errors -fanalyzer " )
+	endif()
+
+	if ( ${CMAKE_C_COMPILER_ID} MATCHES "Clang" OR ${CMAKE_CXX_COMPILER_ID} MATCHES "Clang" )
+		set( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Og -g -Wall -Wextra -Wconversion -Wuninitialized -pedantic -pedantic-errors " )
+		set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Og -g -Wall -Wextra -Wconversion -Wuninitialized -pedantic -pedantic-errors " )
+	endif()
+
+	if ( ${MSVC} )
+		set( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /Od /W4 " )
+		set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Od /W4 " )
+	endif()
+
 elseif( "${CMAKE_BUILD_TYPE}" STREQUAL "Release" )
-	set( CMAKE_CXX_FLAGS "-O2 -s -static-libgcc -static-libstdc++ " )
-	set( CMAKE_C_FLAGS "-O2 -s -static-libgcc -static-libstdc++ " )
+	set( CMAKE_CXX_FLAGS "" )
+	set( CMAKE_C_FLAGS "" )
+
+	if ( ${CMAKE_C_COMPILER_ID} STREQUAL "GNU" OR ${CMAKE_CXX_COMPILER_ID} STREQUAL "GNU" )
+		set( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O3 -s " )
+		set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -s " )
+	endif()
+
+	if ( ${CMAKE_C_COMPILER_ID} MATCHES "Clang" OR ${CMAKE_CXX_COMPILER_ID} MATCHES "Clang" )
+		set( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O3 -Wl,-s " )
+		set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -Wl,-s " )
+	endif()
+
+	if ( ${MSVC} )
+		set( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /O2 " )
+		set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /O2 " )
+	endif()
+
+	add_compile_definitions( NDEBUG )
+elseif( "${CMAKE_BUILD_TYPE}" STREQUAL "Size-Optimized-Release" )
+	set( CMAKE_CXX_FLAGS "" )
+	set( CMAKE_C_FLAGS "" )
+
+	if ( ${CMAKE_C_COMPILER_ID} STREQUAL "GNU" OR ${CMAKE_CXX_COMPILER_ID} STREQUAL "GNU" )
+		set( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Os -s " )
+		set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Os -s " )
+	endif()
+
+	if ( ${CMAKE_C_COMPILER_ID} MATCHES "Clang" OR ${CMAKE_CXX_COMPILER_ID} MATCHES "Clang" )
+		set( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Os -Wl,-s " )
+		set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Os -Wl,-s " )
+	endif()
+
+	if ( ${MSVC} )
+		set( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /O1 " )
+		set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /O1 " )
+	endif()
+
 	add_compile_definitions( NDEBUG )
 endif()
 

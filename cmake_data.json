@@ -13,7 +13,8 @@
 
     "buildTargets": {
         "Debug": {
-            "compilerFlags": [
+            "gccOnlyFlags": [
+                "-Og",
                 "-g",
                 "-Wall",
                 "-Wextra",
@@ -22,15 +23,51 @@
                 "-pedantic",
                 "-pedantic-errors",
                 "-fanalyzer"
+            ],
+            "clangOnlyFlags": [
+                "-Og",
+                "-g",
+                "-Wall",
+                "-Wextra",
+                "-Wconversion",
+                "-Wuninitialized",
+                "-pedantic",
+                "-pedantic-errors"
+            ],
+            "msvcOnlyFlags": [
+                "/Od",
+                "/W4"
             ]
         },
 
         "Release": {
-            "compilerFlags": [
-                "-O2",
-                "-s",
-                "-static-libgcc",
-                "-static-libstdc++"
+            "gccOnlyFlags": [
+                "-O3",
+                "-s"
+            ],
+            "clangOnlyFlags": [
+                "-O3",
+                "-Wl,-s"
+            ],
+            "msvcOnlyFlags": [
+                "/O2"
+            ],
+           "defines": [
+               "NDEBUG"
+            ]
+        },
+
+        "Size-Optimized-Release": {
+            "gccOnlyFlags": [
+                "-Os",
+                "-s"
+            ],
+            "clangOnlyFlags": [
+                "-Os",
+                "-Wl,-s"
+            ],
+            "msvcOnlyFlags": [
+                "/O1"
             ],
             "defines": [
                 "NDEBUG"
