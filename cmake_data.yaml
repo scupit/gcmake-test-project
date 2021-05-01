@@ -7,3 +7,6 @@ supported_compilers:
     - GCC
     - MSVC
     - Clang
+output:
+    Main:
+        output_type: Executable 
