@@ -1,0 +1,9 @@
+name: "GCmake rust test project"
+version: "0.0.1"
+languages:
+    - C
+    - C++
+supported_compilers:
+    - GCC
+    - MSVC
+    - Clang
