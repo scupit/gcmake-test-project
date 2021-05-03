@@ -1,4 +1,5 @@
-name: "GCmake rust test project"
+name: gcmake-test-project
+description: "GCMake rust test project"
 version: "0.0.1"
 languages:
     - C
@@ -10,3 +11,4 @@ supported_compilers:
 output:
     Main:
         output_type: Executable 
+        entry_file: ./main.cpp
