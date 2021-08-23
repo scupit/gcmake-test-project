@@ -1,4 +1,5 @@
 name: gcmake-test-project
+include_prefix: CGEN_TEST
 description: "GCMake rust test project"
 version: "0.0.1"
 languages:
