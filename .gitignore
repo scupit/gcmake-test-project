@@ -1,5 +1,7 @@
 .vscode/
 
+CMakeLists.txt
+
 build/
 dep/lib/
 external/

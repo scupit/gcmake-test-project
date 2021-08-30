@@ -1,5 +1,8 @@
 #include <iostream>
 
+#include "CGEN_TEST/SomeClass.hpp"
+#include "CGEN_TEST/nested/BuildInfo.hpp"
+
 using namespace std;
 
 /*
@@ -19,6 +22,6 @@ using namespace std;
 */
 int main(int argc, const char** argv) {
 
-  cout << "Hello World" << endl;
+  printDebug();
   return EXIT_SUCCESS;
 }

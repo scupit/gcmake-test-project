@@ -2,14 +2,81 @@ name: gcmake-test-project
 include_prefix: CGEN_TEST
 description: "GCMake rust test project"
 version: "0.0.1"
+default_build_type: Debug
+
 languages:
-    - C
-    - C++
+  C:
+    default_standard: 11
+    allowed_standards: [99, 11, 17]
+  Cpp:
+    default_standard: 17
+    allowed_standards: [11, 14, 17, 20]
 supported_compilers:
-    - GCC
-    - MSVC
-    - Clang
+  - GCC
+  - MSVC
+  - Clang
+
 output:
-    Main:
-        output_type: Executable 
-        entry_file: ./main.cpp
+  Main:
+    output_type: Executable 
+    entry_file: ./main.cpp
+
+build_configs:
+  Debug:
+    All:
+      defines:
+        - DEBUG_MODE=1
+    GCC:
+      # Optional flags: -fanalyzer, -static-libgcc, -static-libstdc++, -static
+      flags: [ -Og, -g, -Wall, -Wextra, -Wconversion, -Wuninitialized, -pedantic, -pedantic-errors]
+      defines:
+        - GCC_DEBUG=1
+    Clang:
+      # Optional flags: -mwindows, -static-libgcc, -static-libstdc++, -static
+      flags: [ -Og, -g, -Wall, -Wextra, -Wconversion, -Wuninitialized, -pedantic, -pedantic-errors]
+      defines:
+        - CLANG_DEBUG=1
+    MSVC:
+      flags: [ /Od, /W4]
+      defines:
+        - MSVC_DEBUG=1
+
+  Release:
+    All:
+      defines:
+        - RELEASE_MODE=1
+        - NDEBUG
+
+    GCC:
+      # Optional flags: -mwindows, -static-libgcc, -static-libstdc++, -static
+      flags: [ -O3, -s ]
+      defines:
+        - GCC_RELEASE=1
+    Clang:
+      # Optional flags: -mwindows, -static-libgcc, -static-libstdc++, -static
+      flags: [ -O3, "-Wl,s"]
+      defines:
+        - CLANG_RELEASE=1
+    MSVC:
+      flags: [ /O2 ]
+      defines:
+        - MSVC_RELEASE=1
+
+  SmallRelease:
+    All:
+      defines:
+        - SMALL_RELEASE_MODE=1
+        - NDEBUG
+    GCC:
+      flags: [ -Os, -s ]
+      defines:
+        - GCC_SMALL_RELEASE=1
+    Clang:
+      flags: [ -Os, "-Wl,-s" ]
+      defines:
+        - CLANG_SMALL_RELEASE=1
+    MSVC:
+      flags: [ /O1 ]
+      defines:
+        - MSVC_SMALL_RELEASE
+      
