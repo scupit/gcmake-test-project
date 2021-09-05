@@ -3,7 +3,9 @@
 #include "CGEN_TEST/SomeClass.hpp"
 #include "CGEN_TEST/nested/BuildInfo.hpp"
 
-using namespace std;
+#ifndef GLOBAL_DEF
+  #define GLOBAL_DEF "Not defined globally"
+#endif
 
 /*
   NOTE: If this is a GUI only program, add -mwindows (GCC flag) to release build.
@@ -20,8 +22,10 @@ using namespace std;
 
   MSVC /O2 optimizes for speed, while /O1 optimizes for size.
 */
-int main(int argc, const char** argv) {
+int main() {
+  printBuildInfo();
 
-  printDebug();
+  std::cout << "\nGLOBAL_DEF:\t" GLOBAL_DEF << '\n' << std::endl;
+
   return EXIT_SUCCESS;
 }
