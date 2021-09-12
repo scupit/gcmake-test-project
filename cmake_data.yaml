@@ -28,6 +28,9 @@ output:
 global_defines:
   - GLOBAL_DEF="Is globally defined"
 
+subprojects:
+  - test-subproject
+
 build_configs:
   Debug:
     All:
@@ -44,7 +47,7 @@ build_configs:
       defines:
         - CLANG_DEBUG=1
     MSVC:
-      flags: [ /Od, /W4, /Zi ]
+      flags: [ /Od, /W4, /DEBUG ]
       defines:
         - MSVC_DEBUG=1
 
@@ -100,7 +103,7 @@ build_configs:
       defines:
         - CLANG_DEBUGGABLE_RELEASE=1
     MSVC:
-      flags: [ /O2, /Zi ]
+      flags: [ /O2, /DEBUG ]
       defines:
         - MSVC_DEBUGGABLE_RELEASE=1
       
