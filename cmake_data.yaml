@@ -29,7 +29,7 @@ global_defines:
   - GLOBAL_DEF="Is globally defined"
 
 subprojects:
-  - test-subproject
+  - subproject-test
 
 build_configs:
   Debug:
