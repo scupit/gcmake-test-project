@@ -30,6 +30,7 @@ global_defines:
 
 subprojects:
   - subproject-test
+  - library-test
 
 build_configs:
   Debug:
