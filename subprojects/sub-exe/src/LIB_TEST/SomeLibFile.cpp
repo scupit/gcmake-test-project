@@ -2,5 +2,5 @@
 #include <iostream>
 
 void print_something() {
-  std::cout << "Something is printed";
+  std::cout << "This is the subproject executable.";
 }

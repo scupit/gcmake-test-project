@@ -1,7 +1,8 @@
 #include <iostream>
 
 #include "CGEN_TEST/SomeClass.hpp"
-#include "CGEN_TEST/nested/BuildInfo.hpp"
+#include "build_info.hpp"
+#include "dll-lib.hpp"
 
 #ifndef GLOBAL_DEF
   #define GLOBAL_DEF "Not defined globally"
@@ -24,6 +25,7 @@
 */
 int main() {
   printBuildInfo();
+  DllClass("Message printed using DLL class").printMessage();
 
   std::cout << "\nGLOBAL_DEF:\t" GLOBAL_DEF << '\n' << std::endl;
 

@@ -1,0 +1,9 @@
+---
+name: dll-lib
+include_prefix: DLL_LIB
+description: Test DLL library subproject
+version: 0.0.1
+output:
+  dll-lib:
+    output_type: SharedLib
+    entry_file: dll-lib.hpp

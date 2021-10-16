@@ -1,0 +1,9 @@
+name: build-info
+include_prefix: BUILD_INFO
+description: "GCMake rust test subproject"
+version: "0.0.1"
+
+output:
+  build-info:
+    output_type: StaticLib 
+    entry_file: build_info.hpp

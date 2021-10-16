@@ -1,4 +1,4 @@
-#include "SUBPROJECT_TEST/BuildInfo.hpp"
+#include "BUILD_INFO/BuildInfo.hpp"
 
 #include <iostream>
 #include <string>

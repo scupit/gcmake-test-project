@@ -24,13 +24,17 @@ output:
     #   - GLOBAL_DEF="Is globally defined"
     output_type: Executable 
     entry_file: ./main.cpp
+    link:
+      - build-info-lib::build-info
+      - dll-lib::dll-lib
 
 global_defines:
   - GLOBAL_DEF="Is globally defined"
 
 subprojects:
-  - subproject-test
-  - library-test
+  - build-info-lib
+  - sub-exe
+  - dll-lib
 
 build_configs:
   Debug:
