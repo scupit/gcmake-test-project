@@ -27,6 +27,7 @@ output:
     link:
       - build-info-lib::build-info
       - dll-lib::dll-lib
+      - toggle-lib::toggle-lib
 
 global_defines:
   - GLOBAL_DEF="Is globally defined"
@@ -35,6 +36,7 @@ subprojects:
   - build-info-lib
   - sub-exe
   - dll-lib
+  - toggle-lib
 
 build_configs:
   Debug:
