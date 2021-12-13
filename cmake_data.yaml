@@ -18,6 +18,11 @@ supported_compilers:
   - Clang
 
 output:
+  test-sfml:
+    output_type: Executable
+    entry_file: test-sfml-main.cpp
+    link:
+      - SFML::{ system, window, main }
   Main:
     # TODO: Add defines per target
     # defines:
@@ -37,6 +42,13 @@ subprojects:
   - sub-exe
   - dll-lib
   - toggle-lib
+
+# gcmake_dependencies:
+
+predefined_dependencies:
+  SFML:
+    git_tag: "2.5.1"
+    # commit_hash: "2f11710abc5aa478503a7ff3f9e654bd2078ebab"
 
 build_configs:
   Debug:

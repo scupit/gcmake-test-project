@@ -3,5 +3,5 @@
 CMakeLists.txt
 
 build/
-dep/lib/
+dep/
 external/
