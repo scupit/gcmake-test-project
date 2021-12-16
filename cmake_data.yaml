@@ -6,11 +6,9 @@ default_build_type: Debug
 
 languages:
   C:
-    default_standard: 11
-    allowed_standards: [99, 11, 17]
+    standard: 11
   Cpp:
-    default_standard: 17
-    allowed_standards: [11, 14, 17, 20]
+    standard: 17
 
 supported_compilers:
   - GCC

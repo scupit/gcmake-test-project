@@ -98,9 +98,9 @@ const BuildInfo getBuildInfo() {
 }
 
 void printBuildInfo() noexcept {
-  const BuildInfo info = getBuildInfo();
+  const auto &[mode, compilerName] = getBuildInfo();
   
-  std::cout << "\nMode:\t\t" << info.modeString
-            << "\nCompiler:\t" << info.compilerName
+  std::cout << "\nMode:\t\t" << mode
+            << "\nCompiler:\t" << compilerName
             << '\n';
 }
