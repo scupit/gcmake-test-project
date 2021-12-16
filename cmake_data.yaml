@@ -48,6 +48,10 @@ subprojects:
   - dll-lib
   - toggle-lib
 
+prebuild_config:
+  link:
+    - nlohmann_json::nlohmann_json
+
 # gcmake_dependencies:
 
 predefined_dependencies:
