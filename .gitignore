@@ -1,6 +1,7 @@
 .vscode/
 
 CMakeLists.txt
+copied_json.json
 
 build/
 dep/
