@@ -1,4 +1,6 @@
 .vscode/
+
+**/cmake/
 **/.mypy_cache/
 
 CMakeLists.txt
