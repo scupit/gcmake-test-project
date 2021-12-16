@@ -5,7 +5,7 @@ function( use_executable_prebuild_script
     ALL
     COMMAND ${target_name}
     DEPENDS ${target_name}
-    COMMENT "Running ${PROJECT_NAME} pre-build script"
+    COMMENT "Running ${PROJECT_NAME} pre-build executable script"
     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
   )
 endfunction()

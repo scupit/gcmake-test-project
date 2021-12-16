@@ -1,0 +1,10 @@
+{
+  "some_tag": {
+    "a_name": "something"
+  },
+  "more-tags": [
+    {"sky": 14},
+    12,
+    [null, "sky", 0]
+  ]
+}
