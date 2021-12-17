@@ -1,7 +1,3 @@
-# C++ Root Project
-This is my base project for C++.
+# GCMake Test Project
 
-### Notes:
-* Uses my json-to-cmake generator tool
-* The flag `-mwindows` stops gui programs from opening CMD.
-* Statically links the standard libraries
+Child project for testing my [CMakeLists generation system](https://github.com/scupit/gcmake-rust)
