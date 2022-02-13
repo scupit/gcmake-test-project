@@ -1,0 +1,16 @@
+---
+name: fmt-test
+include_prefix: FMT_TEST
+description: Making sure fmt library works
+version: 0.0.1
+prebuild_config: ~
+output:
+  fmt-test-exe:
+    output_type: Executable
+    entry_file: main.cpp
+    link:
+      - fmt::fmt
+
+predefined_dependencies:
+  fmt:
+    git_tag: "8.1.1"

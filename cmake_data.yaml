@@ -45,6 +45,7 @@ subprojects:
   - sub-exe
   - dll-lib
   - toggle-lib
+  - fmt-test
 
 prebuild_config:
   link:
