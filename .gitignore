@@ -4,6 +4,7 @@
 **/.mypy_cache/
 
 CMakeLists.txt
+Config.cmake.in
 copied_json.json
 
 build/
