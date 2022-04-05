@@ -1,4 +1,4 @@
-#include "DLL_LIB/DllClass.hpp"
+#include "CGEN_TEST/DLL_LIB/DllClass.hpp"
 
 #include <iostream>
 

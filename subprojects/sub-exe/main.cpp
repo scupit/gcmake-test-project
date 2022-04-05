@@ -1,5 +1,5 @@
-#include "LIB_TEST/SomeLibFile.hpp"
-#include "LIB_TEST/AnotherLibFile.hpp"
+#include "CGEN_TEST/LIB_TEST/SomeLibFile.hpp"
+#include "CGEN_TEST/LIB_TEST/AnotherLibFile.hpp"
 #include <stdlib.h>
 
 int main() {

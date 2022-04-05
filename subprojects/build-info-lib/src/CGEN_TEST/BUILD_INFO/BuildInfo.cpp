@@ -1,4 +1,4 @@
-#include "BUILD_INFO/BuildInfo.hpp"
+#include "CGEN_TEST/BUILD_INFO/BuildInfo.hpp"
 
 #include <iostream>
 #include <string>

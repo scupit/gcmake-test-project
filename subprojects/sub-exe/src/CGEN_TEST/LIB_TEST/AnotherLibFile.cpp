@@ -1,4 +1,4 @@
-#include "LIB_TEST/AnotherLibFile.hpp"
+#include "CGEN_TEST/LIB_TEST/AnotherLibFile.hpp"
 
 #include <string>
 #include <iostream>
