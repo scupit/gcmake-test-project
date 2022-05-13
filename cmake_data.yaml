@@ -70,6 +70,8 @@ build_configs:
       flags: [ -Og, -g, -Wall, -Wextra, -Wconversion, -Wuninitialized, -pedantic, -pedantic-errors]
       defines:
         - GCC_DEBUG=1
+        # TODO: Make sure string arguments are properly escaped in CMakeLists.
+        # - GCC_DEBUG="Something noice"
     Clang:
       # Optional flags: -mwindows, -static-libgcc, -static-libstdc++, -static
       flags: [ -Og, -g, -Wall, -Wextra, -Wconversion, -Wuninitialized, -pedantic, -pedantic-errors]
