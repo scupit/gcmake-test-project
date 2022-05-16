@@ -61,6 +61,10 @@
   #define DEBUGGABLE_RELEASE_COMPILER "None or unknown"
 #endif
 
+#ifndef BUILD_MODE
+  #define BUILD_MODE "Unspecified"
+#endif
+
 struct BuildInfo {
   const std::string modeString;
   const std::string compilerName;
@@ -100,7 +104,8 @@ const BuildInfo getBuildInfo() {
 void printBuildInfo() noexcept {
   const auto &[mode, compilerName] = getBuildInfo();
   
-  std::cout << "\nMode:\t\t" << mode
+  std::cout << "\nMode (from flag):\t\t" << mode
+            << "\nGiven BUILD_MODE:\t" << BUILD_MODE
             << "\nCompiler:\t" << compilerName
             << '\n';
 }
