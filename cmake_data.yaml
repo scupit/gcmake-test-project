@@ -88,20 +88,20 @@ build_configs:
         - RELEASE_MODE=1
         - NDEBUG
         - BUILD_MODE="Release"
-
     GCC:
       # Optional compiler flags: -mwindows, -static-libgcc, -static-libstdc++, -static
-      compiler_flags: [ -O3, -s ]
+      compiler_flags: [ -O3, -flto ]
+      linker_flags: [ -s ]
       defines:
         - GCC_RELEASE=1
     Clang:
       # Optional compiler flags: -mwindows, -static-libgcc, -static-libstdc++, -static
-      compiler_flags: [ -O3 ]
+      compiler_flags: [ -O3, -flto ]
       linker_flags: [ -s ]
       defines:
         - CLANG_RELEASE=1
     MSVC:
-      compiler_flags: [ /O2 ]
+      compiler_flags: [ /O2, /GL ]
       defines:
         - MSVC_RELEASE=1
 
@@ -112,16 +112,17 @@ build_configs:
         - NDEBUG
         - BUILD_MODE="MinSizeRel"
     GCC:
-      compiler_flags: [ -Os, -s ]
+      compiler_flags: [ -Os, -flto ]
+      linker_flags: [ -s ]
       defines:
         - GCC_SMALL_RELEASE=1
     Clang:
-      compiler_flags: [ -Os ]
+      compiler_flags: [ -Os, -flto ]
       linker_flags: [ -s ]
       defines:
         - CLANG_SMALL_RELEASE=1
     MSVC:
-      compiler_flags: [ /O1 ]
+      compiler_flags: [ /O1, /GL ]
       defines:
         - MSVC_SMALL_RELEASE=1
       
@@ -129,7 +130,7 @@ build_configs:
     All:
       defines:
         - DEBUGGABLE_RELEASE_MODE=1
-        - BUILD_MODE="MinSizeRel"
+        - BUILD_MODE="RelWithDebInfo"
     GCC:
       compiler_flags: [ -O2, -g ]
       defines:
