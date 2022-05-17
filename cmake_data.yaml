@@ -90,13 +90,13 @@ build_configs:
         - BUILD_MODE="Release"
     GCC:
       # Optional compiler flags: -mwindows, -static-libgcc, -static-libstdc++, -static
-      compiler_flags: [ -O3, -flto ]
+      compiler_flags: [ -O3 ]
       linker_flags: [ -s ]
       defines:
         - GCC_RELEASE=1
     Clang:
       # Optional compiler flags: -mwindows, -static-libgcc, -static-libstdc++, -static
-      compiler_flags: [ -O3, -flto ]
+      compiler_flags: [ -O3 ]
       linker_flags: [ -s ]
       defines:
         - CLANG_RELEASE=1
@@ -112,12 +112,12 @@ build_configs:
         - NDEBUG
         - BUILD_MODE="MinSizeRel"
     GCC:
-      compiler_flags: [ -Os, -flto ]
+      compiler_flags: [ -Os ]
       linker_flags: [ -s ]
       defines:
         - GCC_SMALL_RELEASE=1
     Clang:
-      compiler_flags: [ -Os, -flto ]
+      compiler_flags: [ -Os ]
       linker_flags: [ -s ]
       defines:
         - CLANG_SMALL_RELEASE=1
