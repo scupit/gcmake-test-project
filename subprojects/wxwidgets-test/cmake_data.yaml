@@ -1,0 +1,15 @@
+---
+name: wxwidgets-test
+include_prefix: WXWIDGETS_TEST
+description: Test project for wxWidgets
+version: 0.0.1
+
+output:
+  wxwidgets-test:
+    output_type: Executable
+    entry_file: main.cpp
+    link:
+      - wxWidgets::{ core, base }
+
+predefined_dependencies:
+  wxWidgets: {}

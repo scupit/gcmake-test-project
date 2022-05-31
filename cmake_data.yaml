@@ -46,6 +46,7 @@ subprojects:
   - dll-lib
   - toggle-lib
   - fmt-test
+  - wxwidgets-test
 
 prebuild_config:
   link:
