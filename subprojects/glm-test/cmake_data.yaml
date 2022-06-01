@@ -1,0 +1,16 @@
+---
+name: glm-test
+include_prefix: GLM_TEST
+description: Testing glm math library
+version: 0.0.1
+
+output:
+  glm-test:
+    output_type: Executable
+    entry_file: main.cpp
+    link:
+      - glm::glm
+
+predefined_dependencies:
+  glm:
+    git_tag: "0.9.9.8"

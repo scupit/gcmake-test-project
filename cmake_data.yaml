@@ -47,6 +47,8 @@ subprojects:
   - toggle-lib
   - fmt-test
   - wxwidgets-test
+  - glfw-test
+  - glm-test
 
 prebuild_config:
   link:

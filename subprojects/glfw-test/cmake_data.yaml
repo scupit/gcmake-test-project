@@ -1,0 +1,18 @@
+---
+name: glfw-test
+include_prefix: GLFW_TEST
+description: "Testing GLFW, GLEW, and OpenGL support"
+version: 0.0.1
+
+output:
+  glfw-test:
+    output_type: Executable
+    entry_file: main.cpp
+    link:
+      - GLFW::glfw
+      - GLEW::glew_s
+
+predefined_dependencies:
+  GLFW:
+    git_tag: "3.3.7"
+  GLEW: {}
