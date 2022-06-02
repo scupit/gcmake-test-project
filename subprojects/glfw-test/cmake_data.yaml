@@ -10,7 +10,8 @@ output:
     entry_file: main.cpp
     link:
       - GLFW::glfw
-      - GLEW::glew_s
+      # - GLEW::glew_s
+      - GLEW::glew
 
 predefined_dependencies:
   GLFW:

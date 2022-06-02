@@ -25,7 +25,7 @@ output:
     output_type: Executable
     entry_file: test-sfml-main.cpp
     link:
-      - SFML::{ system, window, main }
+      - SFML::{ system, window }
   Main:
     # TODO: Add defines per target
     # defines:
