@@ -5,6 +5,11 @@ description: Test project for wxWidgets
 version: 0.0.1
 
 output:
+  # TODO: Add target-specific MSVC flag /SUBSYSTEM:WINDOWS
+  # Visual Studio by default tries to build this as a console app,
+  # and looks for 'main()'. However, the wxIMPLEMENT_APP(...) macro
+  # which acts as the "main" function resolves to 'WinMain' and causes
+  # a linker error.
   wxwidgets-test:
     output_type: Executable
     entry_file: main.cpp
