@@ -49,6 +49,7 @@ subprojects:
   - wxwidgets-test
   - glfw-test
   - glm-test
+  - threads-test
 
 prebuild_config:
   link:
