@@ -9,11 +9,13 @@ output:
     output_type: Executable
     entry_file: main.cpp
     link:
-      - GLFW::glfw
-      # - GLEW::glew_s
+      # OpenGL is needed to work with GLEW calls on Linux
+      - OpenGL::GL
       - GLEW::glew
+      - GLFW::glfw
 
 predefined_dependencies:
   GLFW:
     git_tag: "3.3.7"
   GLEW: {}
+  OpenGL: {}
