@@ -50,6 +50,7 @@ subprojects:
   - glfw-test
   - glm-test
   - threads-test
+  - sdl-test
 
 prebuild_config:
   link:

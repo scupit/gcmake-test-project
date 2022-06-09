@@ -1,0 +1,15 @@
+---
+name: sdl-test
+include_prefix: SDL_TEST
+description: Testing SDL support
+version: 0.0.1
+
+output:
+  sdl-test:
+    output_type: Executable
+    entry_file: main.c
+    link:
+      - SDL2::{ SDL2main, SDL2 }
+
+predefined_dependencies:
+  SDL2: {}
