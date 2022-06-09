@@ -51,6 +51,7 @@ subprojects:
   - glm-test
   - threads-test
   - sdl-test
+  - stb-test
 
 prebuild_config:
   link:
