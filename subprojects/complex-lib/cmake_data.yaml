@@ -1,0 +1,18 @@
+---
+name: complex-lib
+include_prefix: COMPLEX_LIB
+description: Some complicated wrapper library
+version: 0.0.1
+
+output:
+  complex-lib:
+    output_type: Library
+    entry_file: complex-lib.h
+    link:
+      - stb::image
+      - SDL2::SDL2
+
+predefined_dependencies:
+  SDL2: {}
+  stb:
+    git_tag: master

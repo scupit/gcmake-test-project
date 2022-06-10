@@ -52,6 +52,7 @@ subprojects:
   - threads-test
   - sdl-test
   - stb-test
+  - complex-lib
 
 prebuild_config:
   link:
