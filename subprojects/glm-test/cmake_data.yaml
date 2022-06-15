@@ -13,4 +13,4 @@ output:
 
 predefined_dependencies:
   glm:
-    git_tag: "0.9.9.8"
+    git_tag: master

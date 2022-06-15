@@ -53,6 +53,7 @@ subprojects:
   - sdl-test
   - stb-test
   - complex-lib
+  - header-only
 
 prebuild_config:
   link:

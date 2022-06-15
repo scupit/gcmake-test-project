@@ -1,8 +1,9 @@
-#include "CGEN_TEST/COMPLEX_LIB/ComplexLibHelpers.h"
+#include "CGEN_TEST/COMPLEX_LIB/ComplexLibHelpers.hpp"
 
-#include <stdlib.h>
-#include <stdio.h>
+#include <cstdlib>
+#include <cstdio>
 #include <SDL2/SDL.h>
+#include <glm/gtx/string_cast.hpp>
 
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
@@ -12,7 +13,7 @@
 
 int showExampleImage(const char* imagePath) {
   if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS) < 0) {
-    printf(
+    std::printf(
       "SDL failed to initialize due to error: %s\n",
       SDL_GetError()
     );
@@ -20,7 +21,7 @@ int showExampleImage(const char* imagePath) {
     return EXIT_FAILURE;
   }
   else {
-    printf("SDL initialized successfully!\n");
+    std::printf("SDL initialized successfully!\n");
   }
 
   SDL_Window* window = SDL_CreateWindow(
@@ -33,7 +34,7 @@ int showExampleImage(const char* imagePath) {
   );
 
   if (window == NULL) {
-    printf("Window could not be created. Error: %s\n", SDL_GetError());
+    std::printf("Window could not be created. Error: %s\n", SDL_GetError());
     return EXIT_FAILURE;
   }
 
@@ -49,7 +50,7 @@ int showExampleImage(const char* imagePath) {
   );
 
   if (imageData == NULL) {
-    printf("Failed to load image from '%s'. Reason: %s\n", imagePath, stbi_failure_reason());
+    std::printf("Failed to load image from '%s'. Reason: %s\n", imagePath, stbi_failure_reason());
     return EXIT_FAILURE;
   }
 
@@ -80,7 +81,7 @@ int showExampleImage(const char* imagePath) {
   );
 
   if (imageSurface == NULL) {
-    printf("Failed to create surface. Reason: %s", SDL_GetError());
+    std::printf("Failed to create surface. Reason: %s", SDL_GetError());
     stbi_image_free(imageData);
     return EXIT_FAILURE;
   }
@@ -99,11 +100,11 @@ int showExampleImage(const char* imagePath) {
     if (event.type == SDL_WINDOWEVENT) {
       switch (event.window.event) {
         case SDL_WINDOWEVENT_CLOSE:
-          printf("Window close event received.\n");
+          std::printf("Window close event received.\n");
           isFinished = 1;
           break;
         case SDL_WINDOWEVENT_MOVED:
-          printf(
+          std::printf(
             "Window %d moved to %d,%d\n",
             event.window.windowID,
             event.window.data1,
@@ -122,4 +123,8 @@ int showExampleImage(const char* imagePath) {
   SDL_Quit();
 
 	return EXIT_SUCCESS;
+}
+
+void printMatrix(const glm::mat4 matrix) {
+	std::cout << glm::to_string(matrix) << std::endl;
 }

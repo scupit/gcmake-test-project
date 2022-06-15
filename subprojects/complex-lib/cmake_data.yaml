@@ -7,12 +7,19 @@ version: 0.0.1
 output:
   complex-lib:
     output_type: Library
-    entry_file: complex-lib.h
+    entry_file: complex-lib.hpp
     link:
-      - stb::image
-      - SDL2::SDL2
+      public:
+        - stb::image
+        - SDL2::SDL2
+        - nlohmann_json::nlohmann_json
+        - glm::glm
 
 predefined_dependencies:
   SDL2: {}
+  glm:
+    git_tag: master
+  nlohmann_json:
+    git_tag: v3.10.4
   stb:
     git_tag: master

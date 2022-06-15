@@ -1,0 +1,16 @@
+---
+name: header-only
+include_prefix: HEADER_ONLY
+description: Header only library support test project
+version: 0.0.1
+
+output:
+  header-only:
+    output_type: HeaderOnlyLib
+    entry_file: header-only.hpp
+    link:
+      - nlohmann_json::nlohmann_json
+
+predefined_dependencies:
+  nlohmann_json:
+    git_tag: v3.10.4
