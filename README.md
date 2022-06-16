@@ -11,3 +11,7 @@ C/C++ project configuration tool.
 - [gcmake-dependency-configs](https://github.com/scupit/gcmake-dependency-configs): The
     [dependency compatibility layer](predefined_dependency_doc.md) repository which allows non-gcmake
     projects to be imported and consumed 'out of the box' by gcmake-rust.
+
+## TODO
+
+- [ ] Use the URL download system to retrieve nlohmann_json, so we don't have to clone 200MB of data.
