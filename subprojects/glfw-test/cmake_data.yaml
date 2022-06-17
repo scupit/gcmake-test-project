@@ -12,10 +12,10 @@ output:
       # OpenGL is needed to work with GLEW calls on Linux
       - OpenGL::GL
       - GLEW::glew
-      - glfw3::glfw
+      - GLFW::glfw
 
 predefined_dependencies:
-  glfw3:
+  GLFW:
     git_tag: "3.3.7"
   GLEW: {}
   OpenGL: {}

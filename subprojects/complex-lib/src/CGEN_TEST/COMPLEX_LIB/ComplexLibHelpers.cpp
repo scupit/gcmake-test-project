@@ -125,6 +125,12 @@ int showExampleImage(const char* imagePath) {
 	return EXIT_SUCCESS;
 }
 
+Dimensions getMonitorDimensions(GLFWmonitor* monitor) {
+  Dimensions d{};
+  glfwGetMonitorPhysicalSize(monitor, &d.x, &d.y);
+  return d;
+}
+
 void printMatrix(const glm::mat4 matrix) {
 	std::cout << glm::to_string(matrix) << std::endl;
 }
