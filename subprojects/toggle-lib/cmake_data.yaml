@@ -5,5 +5,5 @@ description: "Can toggle whether it's static or shared!"
 version: 0.0.1
 output:
   toggle-lib:
-    output_type: Library
+    output_type: CompiledLib
     entry_file: toggle-lib.hpp

@@ -6,7 +6,7 @@ version: 0.0.1
 
 output:
   complex-lib:
-    output_type: Library
+    output_type: CompiledLib
     entry_file: complex-lib.hpp
     link:
       private:
