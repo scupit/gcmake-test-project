@@ -1,6 +1,7 @@
 name: gcmake-test-project
 include_prefix: CGEN_TEST
 description: "GCMake rust test project"
+vendor: "scupit"
 version: "0.0.1"
 default_build_type: Debug
 
