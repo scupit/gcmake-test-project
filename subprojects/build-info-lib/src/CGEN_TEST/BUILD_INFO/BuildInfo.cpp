@@ -21,7 +21,6 @@
   #define RELEASE_MODE 0
 #endif
 
-
 #ifdef GCC_RELEASE
   #define RELEASE_COMPILER "GCC"
 #elif defined CLANG_RELEASE
@@ -35,7 +34,6 @@
 #ifndef SMALL_RELEASE_MODE
   #define SMALL_RELEASE_MODE 0
 #endif
-
 
 #ifdef GCC_SMALL_RELEASE
   #define SMALL_RELEASE_COMPILER "GCC"
@@ -65,47 +63,33 @@
   #define BUILD_MODE "Unspecified"
 #endif
 
-struct BuildInfo {
-  const std::string modeString;
-  const std::string compilerName;
+struct BuildInfo
+{
+    const std::string modeString;
+    const std::string compilerName;
 };
 
-const BuildInfo getBuildInfo() {
+const BuildInfo getBuildInfo()
+{
   if (DEBUG_MODE) {
-    return {
-      "Debug",
-      DEBUG_COMPILER
-    };
+    return {"Debug", DEBUG_COMPILER};
   }
   else if (RELEASE_MODE) {
-    return {
-      "Release",
-      RELEASE_COMPILER
-    };
+    return {"Release", RELEASE_COMPILER};
   }
   else if (SMALL_RELEASE_MODE) {
-    return {
-      "MinSizeRel",
-      SMALL_RELEASE_COMPILER
-    };
+    return {"MinSizeRel", SMALL_RELEASE_COMPILER};
   }
   else if (DEBUGGABLE_RELEASE_MODE) {
-    return {
-      "RelWithDebInfo",
-      DEBUGGABLE_RELEASE_COMPILER
-    };
+    return {"RelWithDebInfo", DEBUGGABLE_RELEASE_COMPILER};
   }
-  return {
-    "Unknown",
-    "Unknown"
-  };
+  return {"Unknown", "Unknown"};
 }
 
-void printBuildInfo() noexcept {
-  const auto &[mode, compilerName] = getBuildInfo();
-  
-  std::cout << "\nMode (from flag):\t\t" << mode
-            << "\nGiven BUILD_MODE:\t" << BUILD_MODE
-            << "\nCompiler:\t" << compilerName
-            << '\n';
+void printBuildInfo() noexcept
+{
+  const auto& [mode, compilerName] = getBuildInfo();
+
+  std::cout << "\nMode (from flag):\t\t" << mode << "\nGiven BUILD_MODE:\t" << BUILD_MODE << "\nCompiler:\t"
+            << compilerName << '\n';
 }

@@ -3,8 +3,10 @@
 #include <iostream>
 
 DllClass::DllClass(const std::string& message)
-  : message(message) { }
+  : message(message)
+{ }
 
-void DllClass::printMessage() {
+void DllClass::printMessage()
+{
   std::cout << message << '\n';
 }

@@ -1,21 +1,18 @@
 // Write your code here and/or #include "Your library files"
-#include <iostream>
 #include "nlohmann/json.hpp"
+#include <iostream>
 
 template <typename T>
-void printSomething(const T& item) {
+void printSomething(const T& item)
+{
   std::cout << item << "\n";
 }
 
-void printJson(const nlohmann::json& givenJson) {
+void printJson(const nlohmann::json& givenJson)
+{
   const nlohmann::json extraJson = {
-    { "Something", "value"},
-    { "Another", {
-      12,
-      nullptr,
-      true,
-      "Noice"
-    }},
+      {"Something", "value"                     },
+      {"Another",   {12, nullptr, true, "Noice"}},
   };
 
   printSomething(givenJson);

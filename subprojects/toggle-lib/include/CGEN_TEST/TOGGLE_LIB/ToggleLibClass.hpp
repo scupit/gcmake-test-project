@@ -3,9 +3,11 @@
 
 #include <string>
 
-class ToggleLibClass {
+class ToggleLibClass
+{
   private:
     static const std::string libClassMessage;
+
   public:
     ToggleLibClass();
     void printMessage();

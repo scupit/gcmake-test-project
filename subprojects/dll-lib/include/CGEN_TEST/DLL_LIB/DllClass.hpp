@@ -3,9 +3,11 @@
 
 #include <string>
 
-class DllClass final {
+class DllClass final
+{
   private:
     std::string message;
+
   public:
     DllClass(const std::string&);
     void printMessage();

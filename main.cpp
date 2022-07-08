@@ -10,9 +10,9 @@
 #endif
 
 /*
-  NOTE: If this is a GUI only program, add -mwindows (GCC flag) to release build.
-  Also, add -static-libgcc (GCC, Clang) and -static-libstdc++ (GCC, Clang)
-    if sending to another person.
+  NOTE: If this is a GUI only program, add -mwindows (GCC flag) to release
+  build. Also, add -static-libgcc (GCC, Clang) and -static-libstdc++ (GCC,
+  Clang) if sending to another person.
 
   -Og flag is "optimizing for debugging", -Os optimized for exe size.
 
@@ -24,7 +24,8 @@
 
   MSVC /O2 optimizes for speed, while /O1 optimizes for size.
 */
-int main() {
+int main()
+{
   printBuildInfo();
 
   DllClass("Message printed using DLL class").printMessage();

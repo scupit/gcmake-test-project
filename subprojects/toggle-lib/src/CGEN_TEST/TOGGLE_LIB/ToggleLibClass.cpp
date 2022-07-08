@@ -6,6 +6,7 @@ const std::string ToggleLibClass::libClassMessage = "This is the message from th
 
 ToggleLibClass::ToggleLibClass() { }
 
-void ToggleLibClass::printMessage() {
+void ToggleLibClass::printMessage()
+{
   std::cout << libClassMessage << '\n';
 }
