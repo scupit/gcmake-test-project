@@ -55,6 +55,7 @@ subprojects:
   - stb-test
   - complex-lib
   - header-only
+  - yaml-cpp-test
 
 prebuild_config:
   link:

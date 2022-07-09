@@ -1,0 +1,20 @@
+---
+name: yaml-cpp-test
+include_prefix: YAML_CPP_TEST_PROJECT
+description: Testing the yaml-cpp library
+version: 0.0.1
+
+output:
+  yaml-cpp-test:
+    output_type: Executable
+    entry_file: main.cpp
+    link:
+      - yaml-cpp::yaml-cpp
+    build_config:
+      AllConfigs:
+        All:
+          defines: [ CONSTANT_FOR_FUN="Noice Constant" ]
+
+predefined_dependencies:
+  yaml-cpp:
+    git_tag: master
