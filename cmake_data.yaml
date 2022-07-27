@@ -16,6 +16,10 @@ supported_compilers:
   - MSVC
   - Clang
 
+test_framework:
+  Catch2:
+    git_tag: v3.0.1
+
 output:
   test-json:
     output_type: Executable
