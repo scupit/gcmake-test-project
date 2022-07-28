@@ -10,7 +10,3 @@ output:
     entry_file: header-only.hpp
     link:
       - nlohmann_json::nlohmann_json
-
-predefined_dependencies:
-  nlohmann_json:
-    git_tag: v3.10.4

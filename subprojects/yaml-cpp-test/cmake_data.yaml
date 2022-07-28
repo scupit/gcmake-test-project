@@ -14,7 +14,3 @@ output:
       AllConfigs:
         All:
           defines: [ CONSTANT_FOR_FUN="Noice Constant" ]
-
-predefined_dependencies:
-  yaml-cpp:
-    git_tag: master

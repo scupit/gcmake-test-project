@@ -10,7 +10,3 @@ output:
     entry_file: main.cpp
     link:
       - glm::glm
-
-predefined_dependencies:
-  glm:
-    git_tag: master

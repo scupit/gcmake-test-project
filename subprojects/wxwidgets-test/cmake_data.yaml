@@ -24,6 +24,3 @@ output:
           # instead of 'main'.
           linker_flags:
             - /SUBSYSTEM:WINDOWS
-
-predefined_dependencies:
-  wxWidgets: {}

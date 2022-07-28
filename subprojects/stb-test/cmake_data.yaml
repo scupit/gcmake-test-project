@@ -11,8 +11,3 @@ output:
     link:
       - SDL2::{ SDL2main, SDL2 }
       - stb::{ image, image_resize }
-
-predefined_dependencies:
-  stb:
-    git_tag: master
-  SDL2: {}

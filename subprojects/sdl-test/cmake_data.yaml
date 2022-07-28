@@ -10,6 +10,3 @@ output:
     entry_file: main.c
     link:
       - SDL2::{ SDL2main, SDL2 }
-
-predefined_dependencies:
-  SDL2: {}

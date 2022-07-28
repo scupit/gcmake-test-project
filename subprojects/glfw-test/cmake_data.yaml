@@ -13,9 +13,3 @@ output:
       - OpenGL::GL
       - GLEW::glew
       - GLFW::glfw
-
-predefined_dependencies:
-  GLFW:
-    git_tag: "3.3.7"
-  GLEW: {}
-  OpenGL: {}
