@@ -1,4 +1,4 @@
-name: gcmake-test-project
+name: gcmake-basic-tests
 include_prefix: CGEN_TEST
 description: "GCMake rust test project"
 vendor: "scupit"
