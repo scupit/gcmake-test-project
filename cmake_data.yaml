@@ -87,7 +87,7 @@ predefined_dependencies:
   Threads: { }
   wxWidgets: { }
   yaml-cpp:
-    git_tag: master
+    git_tag: yaml-cpp-0.7.0
 
 build_configs:
   Debug:

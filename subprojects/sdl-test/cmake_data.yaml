@@ -9,4 +9,6 @@ output:
     output_type: Executable
     entry_file: main.c
     link:
-      - SDL2::{ SDL2main, SDL2 }
+      - SDL2::{ SDL2, SDL2main }
+      # Using this one should fail with an error.
+      # - SDL2::{ SDL2main }
