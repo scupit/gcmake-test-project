@@ -25,4 +25,9 @@ void printJsonAndOtherThing(const nlohmann::json& json, const T& otherThing)
             << "Other thing: " << otherThing << "\n";
 }
 
+template <typename T>
+T doubledItem(const T& item) {
+  return item * 2;
+}
+
 #endif
