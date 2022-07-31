@@ -1,0 +1,90 @@
+name: using-doctest
+include_prefix: USING_DOCTEST
+description: Making sure you can use the DocTest testing framework
+vendor: scupit
+version: 0.0.1
+default_build_type: Debug
+
+test_framework:
+  doctest:
+    git_tag: v2.4.9
+
+languages:
+  C:
+    standard: 11
+  Cpp:
+    standard: 17
+
+supported_compilers:
+  - MSVC
+  - Clang
+  - GCC
+
+output:
+  using-doctest:
+    output_type: HeaderOnlyLib
+    entry_file: using-doctest.hpp
+
+build_configs:
+  Debug:
+    Clang:
+      compiler_flags:
+        - "-Og"
+        - "-pedantic-errors"
+        - "-Wuninitialized"
+        - "-pedantic"
+        - "-Wextra"
+        - "-g"
+        - "-Wconversion"
+        - "-Wall"
+    MSVC:
+      compiler_flags:
+        - /DEBUG
+        - /W4
+        - /Od
+    GCC:
+      compiler_flags:
+        - "-pedantic"
+        - "-g"
+        - "-Wall"
+        - "-Wconversion"
+        - "-Wuninitialized"
+        - "-Wextra"
+        - "-pedantic-errors"
+        - "-Og"
+  RelWithDebInfo:
+    GCC:
+      compiler_flags:
+        - "-O2"
+        - "-g"
+    Clang:
+      compiler_flags:
+        - "-O2"
+        - "-g"
+    MSVC:
+      compiler_flags:
+        - /O2
+        - /DEBUG
+    All:
+      defines:
+        - NDEBUG
+  Release:
+    GCC:
+      compiler_flags:
+        - "-O3"
+        - "-flto"
+      linker_flags:
+        - "-s"
+    MSVC:
+      compiler_flags:
+        - /O2
+        - /GL
+    All:
+      defines:
+        - NDEBUG
+    Clang:
+      compiler_flags:
+        - "-O3"
+        - "-flto"
+      linker_flags:
+        - "-s"
