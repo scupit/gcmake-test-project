@@ -1,0 +1,75 @@
+---
+name: using-googletest
+include_prefix: USING_GOOGLETEST
+description: Making sure gcmake works with GoogleTest
+vendor: scupit
+version: 0.0.1
+default_build_type: Debug
+
+languages:
+  C:
+    standard: 11
+  Cpp:
+    standard: 17
+
+supported_compilers:
+  - Clang
+  - MSVC
+  - GCC
+
+test_framework:
+  GoogleTest:
+    git_tag: release-1.12.1
+
+output:
+  using-googletest:
+    output_type: StaticLib
+    entry_file: using-googletest.hpp
+
+build_configs:
+  Release:
+    Clang:
+      compiler_flags:
+        - "-O3"
+        - "-flto"
+      linker_flags:
+        - "-s"
+    MSVC:
+      compiler_flags:
+        - /GL
+        - /O2
+    All:
+      defines:
+        - NDEBUG
+    GCC:
+      compiler_flags:
+        - "-O3"
+        - "-flto"
+      linker_flags:
+        - "-s"
+  Debug:
+    Clang:
+      compiler_flags:
+        - "-Wextra"
+        - "-Wconversion"
+        - "-Og"
+        - "-pedantic-errors"
+        - "-Wuninitialized"
+        - "-pedantic"
+        - "-g"
+        - "-Wall"
+    GCC:
+      compiler_flags:
+        - "-g"
+        - "-Wall"
+        - "-Wuninitialized"
+        - "-Og"
+        - "-Wextra"
+        - "-pedantic"
+        - "-Wconversion"
+        - "-pedantic-errors"
+    MSVC:
+      compiler_flags:
+        - /DEBUG
+        - /W4
+        - /Od
