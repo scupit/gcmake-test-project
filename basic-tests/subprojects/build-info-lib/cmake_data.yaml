@@ -1,4 +1,3 @@
-name: build-info
 include_prefix: BUILD_INFO
 description: "GCMake rust test subproject"
 version: "0.0.1"

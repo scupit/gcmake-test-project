@@ -1,5 +1,4 @@
 ---
-name: threads-test
 include_prefix: THREADS_TEST
 description: Testing the Threads dependency
 version: 0.0.1

@@ -1,5 +1,4 @@
 ---
-name: example
 include_prefix: EXAMPLE
 description: Showing one way to provide library examples or general tools
 version: 0.0.1
@@ -14,3 +13,9 @@ output:
       # parent project.
       # - root::reference-parent
       # - super::reference-parent
+
+      # TODO: Add docs about the tradeoffs between using root:: and referencing the parent project.
+      # Since all targets in the resolved scope project's tree and below are recursively available 
+      # as a "toplevel" target, you can theoretically move projects into any subproject directory
+      # in the whole project tree (including nested) with no issue when referencing targets
+      # using root::.

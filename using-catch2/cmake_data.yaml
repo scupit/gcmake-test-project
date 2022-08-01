@@ -28,7 +28,7 @@ output:
 
 build_configs:
   Release:
-    All:
+    AllCompilers:
       defines:
         - NDEBUG
     MSVC:

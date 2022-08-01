@@ -1,5 +1,4 @@
 ---
-name: dll-lib
 include_prefix: DLL_LIB
 description: Test DLL library subproject
 version: 0.0.1

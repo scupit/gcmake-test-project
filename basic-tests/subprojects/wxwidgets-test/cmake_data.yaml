@@ -1,5 +1,4 @@
 ---
-name: wxwidgets-test
 include_prefix: WXWIDGETS_TEST
 description: Test project for wxWidgets
 version: 0.0.1
@@ -12,7 +11,7 @@ output:
       - wxWidgets::{ core, base }
     build_config:
       AllConfigs:
-        All:
+        AllCompilers:
           defines:
             - THE_WINDOW_TITLE="This is the window title"
         MSVC:

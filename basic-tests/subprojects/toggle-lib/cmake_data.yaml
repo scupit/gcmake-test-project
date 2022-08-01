@@ -1,5 +1,4 @@
 ---
-name: toggle-lib
 include_prefix: TOGGLE_LIB
 description: "Can toggle whether it's static or shared!"
 version: 0.0.1

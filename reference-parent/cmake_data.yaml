@@ -26,16 +26,13 @@ output:
       private:
         - fmt::fmt
 
-subprojects:
-  - example
-
 predefined_dependencies:
   fmt:
     git_tag: "9.0.0"
 
 build_configs:
   Release:
-    All:
+    AllCompilers:
       defines:
         - NDEBUG
     Clang:

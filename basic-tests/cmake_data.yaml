@@ -45,22 +45,6 @@ output:
 global_defines:
   - GLOBAL_DEF="Is globally defined"
 
-subprojects:
-  - build-info-lib
-  - sub-exe
-  - dll-lib
-  - toggle-lib
-  - fmt-test
-  - wxwidgets-test
-  - glfw-test
-  - glm-test
-  - threads-test
-  - sdl-test
-  - stb-test
-  - complex-lib
-  - header-only
-  - yaml-cpp-test
-
 prebuild_config:
   link:
     - nlohmann_json::nlohmann_json
@@ -91,7 +75,7 @@ predefined_dependencies:
 
 build_configs:
   Debug:
-    All:
+    AllCompilers:
       defines:
         - DEBUG_MODE=1
         # Testing quoted strings in defines
@@ -112,7 +96,7 @@ build_configs:
         - MSVC_DEBUG=1
 
   Release:
-    All:
+    AllCompilers:
       defines:
         - RELEASE_MODE=1
         - NDEBUG
@@ -135,7 +119,7 @@ build_configs:
         - MSVC_RELEASE=1
 
   MinSizeRel:
-    All:
+    AllCompilers:
       defines:
         - SMALL_RELEASE_MODE=1
         - NDEBUG
@@ -156,7 +140,7 @@ build_configs:
         - MSVC_SMALL_RELEASE=1
       
   RelWithDebInfo:
-    All:
+    AllCompilers:
       defines:
         - DEBUGGABLE_RELEASE_MODE=1
         - BUILD_MODE="RelWithDebInfo"

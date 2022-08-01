@@ -1,5 +1,4 @@
 ---
-name: glm-test
 include_prefix: GLM_TEST
 description: Testing glm math library
 version: 0.0.1

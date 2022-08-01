@@ -1,5 +1,4 @@
 ---
-name: sdl-test
 include_prefix: SDL_TEST
 description: Testing SDL support
 version: 0.0.1
@@ -10,5 +9,3 @@ output:
     entry_file: main.c
     link:
       - SDL2::{ SDL2, SDL2main }
-      # Using this one should fail with an error.
-      # - SDL2::{ SDL2main }

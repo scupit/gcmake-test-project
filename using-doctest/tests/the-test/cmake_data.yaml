@@ -1,4 +1,5 @@
 ---
+include_prefix: THE_TEST
 description: Need to provide a test project in order to actually use the test framework
 version: 0.0.1
 

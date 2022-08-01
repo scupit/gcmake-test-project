@@ -1,5 +1,4 @@
 ---
-name: complex-lib
 include_prefix: COMPLEX_LIB
 description: Some complicated wrapper library
 version: 0.0.1

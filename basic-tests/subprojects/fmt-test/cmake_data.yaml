@@ -1,9 +1,8 @@
 ---
-name: fmt-test
 include_prefix: FMT_TEST
 description: Making sure fmt library works
 version: 0.0.1
-prebuild_config: { }
+
 output:
   fmt-test-exe:
     output_type: Executable

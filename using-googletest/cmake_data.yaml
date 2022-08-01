@@ -38,7 +38,7 @@ build_configs:
       compiler_flags:
         - /GL
         - /O2
-    All:
+    AllCompilers:
       defines:
         - NDEBUG
     GCC:

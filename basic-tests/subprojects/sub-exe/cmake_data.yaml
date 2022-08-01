@@ -1,5 +1,4 @@
 ---
-name: "sub-exe"
 include_prefix: LIB_TEST
 description: Test Library
 version: 0.0.1

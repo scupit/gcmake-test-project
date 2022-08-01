@@ -1,5 +1,4 @@
 ---
-name: header-only
 include_prefix: HEADER_ONLY
 description: Header only library support test project
 version: 0.0.1

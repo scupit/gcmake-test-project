@@ -1,5 +1,4 @@
 ---
-name: stb-test
 include_prefix: STB_TEST
 description: Testing out stb libraries
 version: 0.0.1

@@ -65,7 +65,7 @@ build_configs:
       compiler_flags:
         - /O2
         - /DEBUG
-    All:
+    AllCompilers:
       defines:
         - NDEBUG
   Release:
@@ -79,7 +79,7 @@ build_configs:
       compiler_flags:
         - /O2
         - /GL
-    All:
+    AllCompilers:
       defines:
         - NDEBUG
     Clang:
