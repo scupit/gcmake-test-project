@@ -1,0 +1,11 @@
+---
+description: The actual test
+version: 0.0.1
+prebuild_config: ~
+output:
+  the-test:
+    output_type: Executable
+    entry_file: main.cpp
+    link: ~
+    build_config: ~
+    requires_custom_main: false

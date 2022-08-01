@@ -1,0 +1,75 @@
+---
+name: using-catch2
+include_prefix: USING_CATCH2
+description: Making sure we can use the Catch2 test framework
+vendor: scupit
+version: 0.0.1
+default_build_type: Debug
+
+languages:
+  C:
+    standard: 11
+  Cpp:
+    standard: 17
+
+supported_compilers:
+  - Clang
+  - MSVC
+  - GCC
+
+test_framework:
+  Catch2:
+    git_tag: v3.1.0
+
+output:
+  using-catch2:
+    output_type: HeaderOnlyLib
+    entry_file: using-catch2.hpp
+
+build_configs:
+  Release:
+    All:
+      defines:
+        - NDEBUG
+    MSVC:
+      compiler_flags:
+        - /GL
+        - /O2
+    GCC:
+      compiler_flags:
+        - "-flto"
+        - "-O3"
+      linker_flags:
+        - "-s"
+    Clang:
+      compiler_flags:
+        - "-O3"
+        - "-flto"
+      linker_flags:
+        - "-s"
+  Debug:
+    Clang:
+      compiler_flags:
+        - "-pedantic"
+        - "-g"
+        - "-Wall"
+        - "-Wextra"
+        - "-Wuninitialized"
+        - "-pedantic-errors"
+        - "-Og"
+        - "-Wconversion"
+    MSVC:
+      compiler_flags:
+        - /Od
+        - /W4
+        - /DEBUG
+    GCC:
+      compiler_flags:
+        - "-Wall"
+        - "-Wconversion"
+        - "-pedantic"
+        - "-Wuninitialized"
+        - "-g"
+        - "-pedantic-errors"
+        - "-Og"
+        - "-Wextra"
