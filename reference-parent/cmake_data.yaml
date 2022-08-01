@@ -1,0 +1,82 @@
+---
+name: reference-parent
+include_prefix: REFERENCE_PARENT
+description: Testing to see whether subprojects can link to outputs build by the parent project
+vendor: scupit
+
+version: 0.0.1
+default_build_type: Debug
+
+languages:
+  C:
+    standard: 11
+  Cpp:
+    standard: 17
+
+supported_compilers:
+  - Clang
+  - MSVC
+  - GCC
+
+output:
+  reference-parent:
+    output_type: CompiledLib
+    entry_file: reference-parent.hpp
+    link:
+      private:
+        - fmt::fmt
+
+subprojects:
+  - example
+
+predefined_dependencies:
+  fmt:
+    git_tag: "9.0.0"
+
+build_configs:
+  Release:
+    All:
+      defines:
+        - NDEBUG
+    Clang:
+      compiler_flags:
+        - "-O3"
+        - "-flto"
+      linker_flags:
+        - "-s"
+    MSVC:
+      compiler_flags:
+        - /GL
+        - /O2
+    GCC:
+      compiler_flags:
+        - "-O3"
+        - "-flto"
+      linker_flags:
+        - "-s"
+  Debug:
+    Clang:
+      compiler_flags:
+        - "-pedantic"
+        - "-Wextra"
+        - "-Wconversion"
+        - "-pedantic-errors"
+        - "-Wall"
+        - "-g"
+        - "-Og"
+        - "-Wuninitialized"
+    GCC:
+      compiler_flags:
+        - "-pedantic"
+        - "-pedantic-errors"
+        - "-g"
+        - "-Wuninitialized"
+        - "-Wall"
+        - "-Og"
+        - "-Wextra"
+        - "-Wconversion"
+    MSVC:
+      compiler_flags:
+        - /DEBUG
+        - /W4
+        - /Od
