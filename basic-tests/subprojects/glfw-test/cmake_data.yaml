@@ -10,5 +10,5 @@ output:
     link:
       # OpenGL is needed to work with GLEW calls on Linux
       - OpenGL::GL
-      - GLEW::glew
+      - GLEW::glew-shared
       - GLFW::glfw
