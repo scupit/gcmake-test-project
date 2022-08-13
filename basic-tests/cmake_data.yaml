@@ -35,11 +35,11 @@ output:
     output_type: Executable
     entry_file: test-sfml-main.cpp
     link:
+      # - SFML::{ window, ((windows)) main }
+      # This is equivalent to the above. Note that above, SFML::system is transitively included
       - SFML::{ system, window }
+      - ((windows)) SFML::main
   Main:
-    # TODO: Add defines per target
-    # defines:
-    #   - GLOBAL_DEF="Is globally defined"
     output_type: Executable 
     entry_file: ./main.cpp
     link:
@@ -85,6 +85,8 @@ build_configs:
         - DEBUG_MODE=1
         # Testing quoted strings in defines
         - BUILD_MODE="Debug aw yeah"
+        # TODO: Implement platform and compiler specifiec defines and flags
+        # - ((windows or linux)) ON_WINDOWS_OR_LINUX=1
     GCC:
       # Optional compiler flags: -fanalyzer, -static-libgcc, -static-libstdc++, -static
       compiler_flags: [ -Og, -g, -Wall, -Wextra, -Wconversion, -Wuninitialized, -pedantic, -pedantic-errors]
