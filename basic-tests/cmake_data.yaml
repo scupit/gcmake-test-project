@@ -49,6 +49,8 @@ output:
 
 global_defines:
   - GLOBAL_DEF="Is globally defined"
+  - ((windows)) TARGETING_WINDOWS="Oh yeah"
+  - ((not windows)) TARGETING_WINDOWS="NOPE"
 
 prebuild_config:
   link:

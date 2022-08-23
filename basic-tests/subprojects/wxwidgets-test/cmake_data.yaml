@@ -13,7 +13,8 @@ output:
       AllConfigs:
         AllCompilers:
           defines:
-            - THE_WINDOW_TITLE="This is the window title"
+            - ((not mingw)) THE_WINDOW_TITLE="This is the window title"
+            - ((mingw)) THE_WINDOW_TITLE="Special title for MinGW"
         MSVC:
           # Visual Studio by default tries to build this as a console app (/SUBSYSTEM:CONSOLE),
           # and looks for 'main()'. However, the wxIMPLEMENT_APP(...) macro
