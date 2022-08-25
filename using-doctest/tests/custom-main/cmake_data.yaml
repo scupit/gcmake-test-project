@@ -1,0 +1,10 @@
+---
+include_prefix: CUSTOM_MAIN
+description: Using doctest with custom main
+version: 0.0.1
+
+output:
+  custom-main:
+    requires_custom_main: true
+    output_type: Executable
+    entry_file: main.cpp

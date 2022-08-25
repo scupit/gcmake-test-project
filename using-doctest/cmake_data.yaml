@@ -72,7 +72,6 @@ build_configs:
     GCC:
       compiler_flags:
         - "-O3"
-        - "-flto"
       linker_flags:
         - "-s"
     MSVC:
@@ -85,6 +84,5 @@ build_configs:
     Clang:
       compiler_flags:
         - "-O3"
-        - "-flto"
       linker_flags:
         - "-s"

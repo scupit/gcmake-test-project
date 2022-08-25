@@ -9,4 +9,3 @@ TEST_CASE( "Can double things", "[doubling]" ) {
     REQUIRE( doubleItem(5.0) == 5.0 * 2 );
   }
 }
-

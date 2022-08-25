@@ -1,0 +1,9 @@
+---
+include_prefix: CUSTOM_MAIN
+description: Using GoogleTest with a custom main function
+version: 0.0.1
+
+output:
+  custom-main:
+    output_type: Executable
+    entry_file: main.cpp

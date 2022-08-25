@@ -37,14 +37,12 @@ build_configs:
         - /O2
     GCC:
       compiler_flags:
-        - "-flto"
         - "-O3"
       linker_flags:
         - "-s"
     Clang:
       compiler_flags:
         - "-O3"
-        - "-flto"
       linker_flags:
         - "-s"
   Debug:

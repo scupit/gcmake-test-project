@@ -1,9 +1,0 @@
----
-include_prefix: THE_TEST
-description: The actual test
-version: 0.0.1
-
-output:
-  the-test:
-    output_type: Executable
-    entry_file: main.cpp
