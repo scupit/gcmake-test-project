@@ -9,18 +9,3 @@ output:
     entry_file: main.cpp
     link:
       - fmt::fmt
-    build_config:
-      AllConfigs:
-        GCC:
-          compiler_flags:
-            # For some reason building this executable with fmt in this specific project while
-            # interprocedural optimization is enabled with MinGW causes the build to fail with an
-            # "undefined reference to WinMain error".
-            # ....../libmingw32.a(lib64_libmingw32_a-ctr0_c.o):ctr0_c.c .... undefined reference to `WinMain`
-
-            # However, doing so in other projects works fine, which is why I haven't figured out why this
-            # one throws an error yet. Building with -municode fixes the issue, because it apparently
-            # changes the startup code in such a way that causes the WinMain error to no longer appear.
-            # Better description found in this page:
-            # https://stackoverflow.com/questions/58324230/undefined-reference-to-winmain-c-mingw
-            - ((mingw)) -municode

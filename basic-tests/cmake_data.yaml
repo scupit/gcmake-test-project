@@ -52,11 +52,10 @@ global_defines:
   - ((windows)) TARGETING_WINDOWS="Oh yeah"
   - ((not windows)) TARGETING_WINDOWS="NOPE"
 
-# This 
-# global_properties:
-#   ipo_enabled_for:
-#     - Release
-#     - MinSizeRel
+global_properties:
+  ipo_enabled_for:
+    - Release
+    - MinSizeRel
 
 prebuild_config:
   link:
