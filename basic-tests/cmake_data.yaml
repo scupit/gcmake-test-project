@@ -53,6 +53,9 @@ global_defines:
   - ((not windows)) TARGETING_WINDOWS="NOPE"
 
 global_properties:
+  # Example of setting the default compiled lib type to static. 'Shared' is the fallback default
+  # when this property is not specified.
+  default_compiled_lib_type: Static
   ipo_enabled_for:
     - Release
     - MinSizeRel
