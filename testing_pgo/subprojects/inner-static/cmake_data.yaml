@@ -1,0 +1,12 @@
+---
+include_prefix: INNER_STATIC
+description: "PGO should not be used on static libs, but also shouldn't break the build"
+version: 0.0.1
+
+output:
+  inner-static:
+    output_type: StaticLib
+    entry_file: inner-static.hpp
+    link:
+      private:
+        - fmt::fmt

@@ -1,0 +1,12 @@
+---
+include_prefix: INNER_LIB
+description: PGO should also work on shared libraries
+version: 0.0.1
+
+output:
+  inner-lib:
+    output_type: SharedLib
+    entry_file: inner-lib.hpp
+    link:
+      private:
+        - fmt::fmt

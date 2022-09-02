@@ -1,0 +1,78 @@
+---
+name: testing_pgo
+include_prefix: TESTING_PGO
+description: Small test project for building with PGO
+vendor: scupit
+version: 0.0.1
+
+default_build_type: Release
+
+languages:
+  C:
+    standard: 11
+  Cpp:
+    standard: 17
+
+supported_compilers:
+  - MSVC
+  - GCC
+  - Clang
+
+output:
+  testing_pgo:
+    output_type: Executable
+    entry_file: main.cpp
+    link:
+      - fmt::fmt
+      - inner-lib::inner-lib
+      - inner-static::inner-static
+
+predefined_dependencies:
+  fmt:
+    git_tag: "9.0.0"
+
+build_configs:
+  Debug:
+    MSVC:
+      compiler_flags:
+        - /Od
+        - /W4
+        - /DEBUG
+    GCC:
+      compiler_flags:
+        - "-Og"
+        - "-g"
+        - "-Wall"
+        - "-Wextra"
+        - "-Wconversion"
+        - "-Wuninitialized"
+        - "-pedantic"
+        - "-pedantic-errors"
+    Clang:
+      compiler_flags:
+        - "-Og"
+        - "-g"
+        - "-Wall"
+        - "-Wextra"
+        - "-Wconversion"
+        - "-Wuninitialized"
+        - "-pedantic"
+        - "-pedantic-errors"
+  Release:
+    MSVC:
+      compiler_flags:
+        - /O2
+        - /GL
+    AllCompilers:
+      defines:
+        - NDEBUG
+    GCC:
+      compiler_flags:
+        - "-O3"
+      linker_flags:
+        - "-s"
+    Clang:
+      compiler_flags:
+        - "-O3"
+      linker_flags:
+        - "-s"

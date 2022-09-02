@@ -1,0 +1,11 @@
+**/.cache/
+**/.vscode/
+
+**/cmake/
+**/.mypy_cache/
+
+CMakeLists.txt
+Config.cmake.in
+
+build/
+dep/
