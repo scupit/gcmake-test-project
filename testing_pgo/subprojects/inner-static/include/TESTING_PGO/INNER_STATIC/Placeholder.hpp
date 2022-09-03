@@ -2,7 +2,8 @@
 #define H_INNER_STATIC_PLACEHOLDER
 
 #include <string>
+#include "TESTING_PGO/INNER_STATIC/inner-static_export.h"
 
-void printFromInnerStatic(const std::string&);
+INNER_STATIC_EXPORT void printFromInnerStatic(const std::string&);
 
 #endif
