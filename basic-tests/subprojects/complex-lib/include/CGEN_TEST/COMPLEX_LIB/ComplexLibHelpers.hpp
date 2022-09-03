@@ -3,20 +3,22 @@
 
 #include <iostream>
 
+#include "CGEN_TEST/COMPLEX_LIB/complex-lib_export.h"
+
 #include "GLFW/glfw3.h"
 #include "glm/mat4x4.hpp"
 #include "nlohmann/json.hpp"
 
-struct Dimensions
+struct COMPLEX_LIB_EXPORT Dimensions
 {
     int x;
     int y;
 };
 
-Dimensions getMonitorDimensions(GLFWmonitor*);
+COMPLEX_LIB_EXPORT Dimensions getMonitorDimensions(GLFWmonitor*);
 
-void printMatrix(const glm::mat4);
-int  showExampleImage(const char* imagePath);
+COMPLEX_LIB_EXPORT void printMatrix(const glm::mat4);
+COMPLEX_LIB_EXPORT int  showExampleImage(const char* imagePath);
 
 template <typename T>
 void printJsonAndOtherThing(const nlohmann::json& json, const T& otherThing)

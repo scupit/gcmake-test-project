@@ -3,7 +3,9 @@
 
 #include <string>
 
-class ToggleLibClass
+#include "CGEN_TEST/TOGGLE_LIB/toggle-lib_export.h"
+
+class TOGGLE_LIB_EXPORT ToggleLibClass
 {
   private:
     static const std::string libClassMessage;

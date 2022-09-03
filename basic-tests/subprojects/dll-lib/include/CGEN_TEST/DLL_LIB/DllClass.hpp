@@ -3,7 +3,9 @@
 
 #include <string>
 
-class DllClass final
+#include "CGEN_TEST/DLL_LIB/dll-lib_export.h"
+
+class DLL_LIB_EXPORT DllClass final
 {
   private:
     std::string message;
