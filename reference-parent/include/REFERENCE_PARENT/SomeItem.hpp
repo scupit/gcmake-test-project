@@ -2,8 +2,9 @@
 #define H_SOME_ITEM
 
 #include <string>
+#include "REFERENCE_PARENT/reference-parent_export.h"
 
-struct SomeItem {
+struct REFERENCE_PARENT_EXPORT SomeItem {
   private:
     std::string name;
   public:
