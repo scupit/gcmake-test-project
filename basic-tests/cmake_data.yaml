@@ -9,6 +9,9 @@ installer_config:
   title: "GCMake Basic Tests"
   description: "Programs and libraries build while testing the GCMake tool"
   name_prefix: basic-gcmake-tests
+  shortcuts:
+    test-sfml:
+      name: The Test Program
 
 languages:
   C:
