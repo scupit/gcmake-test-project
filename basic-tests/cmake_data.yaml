@@ -12,6 +12,7 @@ installer_config:
   shortcuts:
     test-sfml:
       name: The Test Program
+      windows_icon: icons/Smiley.ico
 
 languages:
   C:
