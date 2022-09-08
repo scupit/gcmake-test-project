@@ -7,6 +7,7 @@ output:
   wxwidgets-test:
     output_type: Executable
     entry_file: main.cpp
+    windows_icon: icons/Smiley.ico
     link:
       - wxWidgets::{ core, base }
     build_config:

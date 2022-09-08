@@ -12,7 +12,6 @@ installer_config:
   shortcuts:
     test-sfml:
       name: The Test Program
-      windows_icon: icons/Smiley.ico
 
 languages:
   C:
@@ -38,6 +37,7 @@ output:
   test-sfml:
     output_type: Executable
     entry_file: test-sfml-main.cpp
+    windows_icon: icons/Smiley.ico
     link:
       # - SFML::{ window, ((windows)) main }
       # This is equivalent to the above. Note that above, SFML::system is transitively included
