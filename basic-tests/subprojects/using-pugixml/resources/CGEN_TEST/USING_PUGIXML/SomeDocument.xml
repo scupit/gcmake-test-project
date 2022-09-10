@@ -1,0 +1,8 @@
+<List>
+  <Item name="Sky">
+    <Body>Some body text</Body>
+  </Item>
+  <Item name="Another Item">
+    <Body>More body text</Body>
+  </Item>
+</List>

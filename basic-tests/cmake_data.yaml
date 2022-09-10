@@ -69,6 +69,8 @@ prebuild_config:
 # gcmake_dependencies:
 
 predefined_dependencies:
+  pugixml:
+    git_tag: v1.12.1
   cxxopts:
     git_tag: v3.0.0
   FTXUI:
