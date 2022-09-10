@@ -1,0 +1,12 @@
+---
+include_prefix: USING_CLI11
+description: Test project for CLI11 support
+version: 0.0.1
+
+output:
+  using-cli11:
+    output_type: Executable
+    entry_file: main.cpp
+    link:
+      - CLI11::CLI11
+      - fmt::fmt

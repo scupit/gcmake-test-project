@@ -69,6 +69,8 @@ prebuild_config:
 # gcmake_dependencies:
 
 predefined_dependencies:
+  CLI11:
+    git_tag: v2.2.0
   SFML:
     git_tag: "2.5.1"
     # commit_hash: "2f11710abc5aa478503a7ff3f9e654bd2078ebab"
