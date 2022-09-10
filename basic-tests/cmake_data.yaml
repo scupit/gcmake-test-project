@@ -69,6 +69,8 @@ prebuild_config:
 # gcmake_dependencies:
 
 predefined_dependencies:
+  FTXUI:
+    git_tag: v3.0.0
   CLI11:
     git_tag: v2.2.0
   SFML:

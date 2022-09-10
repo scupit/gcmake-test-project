@@ -1,0 +1,11 @@
+---
+include_prefix: USING_FTXUI
+description: Test project for FTXUI support
+version: 0.0.1
+
+output:
+  using-ftxui:
+    output_type: Executable
+    entry_file: main.cpp
+    link:
+      - FTXUI::{ screen, dom }
