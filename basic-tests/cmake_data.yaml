@@ -95,8 +95,12 @@ predefined_dependencies:
     git_tag: "8.1.1"
   Threads: { }
   wxWidgets: { }
+  # Use master branch of yaml-cpp instead of the latest 'yaml-cpp-0.7.0'.
+  # cmake_dependent_option currently force overrides YAML_CPP_INSTALL by hiding the option
+  # completely (see the issue at https://gitlab.kitware.com/cmake/cmake/-/issues/22909)
+  # on the yaml-cpp-0.7.0 branch. This issue is not present on the master branch.
   yaml-cpp:
-    git_tag: yaml-cpp-0.7.0
+    git_tag: master
 
 build_configs:
   Debug:
