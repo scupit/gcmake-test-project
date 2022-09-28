@@ -1,0 +1,12 @@
+---
+include_prefix: TEST_ARGPARSE
+description: Testing argparse support
+version: 0.0.1
+
+output:
+  test-argparse:
+    output_type: Executable
+    entry_file: main.cpp
+    link:
+      - argparse::argparse
+      - fmt::fmt
