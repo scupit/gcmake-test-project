@@ -101,6 +101,8 @@ predefined_dependencies:
   # on the yaml-cpp-0.7.0 branch. This issue is not present on the master branch.
   yaml-cpp:
     git_tag: master
+  magic_enum:
+    git_tag: v0.8.1
 
 build_configs:
   Debug:

@@ -1,0 +1,12 @@
+---
+include_prefix: MAGIC_ENUM_TEST
+description: Testing magic enum library
+version: 0.0.1
+
+output:
+  magic_enum_test:
+    output_type: Executable
+    entry_file: main.cpp
+    link:
+      - magic_enum::magic_enum
+      - fmt::fmt
