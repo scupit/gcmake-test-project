@@ -69,6 +69,8 @@ prebuild_config:
 # gcmake_dependencies:
 
 predefined_dependencies:
+  imgui:
+    git_tag: v1.88
   argparse:
     git_tag: v2.9
   pugixml:

@@ -1,0 +1,14 @@
+---
+include_prefix: TESTING_IMGUI
+description: IMGUI support test project
+version: 0.0.1
+
+output:
+  imgui-test:
+    output_type: Executable
+    entry_file: main.cpp
+    link:
+      - OpenGL::GL
+      - GLFW::glfw
+      - imgui::glfw_opengl3
+      - fmt::fmt
