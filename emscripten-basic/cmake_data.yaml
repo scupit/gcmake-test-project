@@ -1,0 +1,128 @@
+---
+name: emscripten-basic
+include_prefix: EMSCRIPTEN_BASIC
+description: Testing Emscripten support
+vendor: scupit
+version: 0.0.1
+default_build_type: Debug
+
+languages:
+  C:
+    standard: 11
+  Cpp:
+    standard: 17
+
+prebuild_config:
+  link:
+    - emscripten::nodeFS
+
+supported_compilers:
+  - GCC
+  - Clang
+  - MSVC
+  - Emscripten
+
+output:
+  emscripten-basic:
+    output_type: Executable
+    entry_file: main.cpp
+
+global_defines:
+  - ((emscripten)) EMSCRIPTEN
+
+predefined_dependencies:
+  emscripten:
+    git_tag: origin/develop
+
+build_configs:
+  Debug:
+    Emscripten:
+      compiler_flags: [ -O0, -g, -gsource-map ]
+      link_time_flags: [ --source-map-base, http://localhost:8080/build/bin/Debug ]
+    GCC:
+      compiler_flags:
+        - "-Og"
+        - "-g"
+        - "-Wall"
+        - "-Wextra"
+        - "-Wconversion"
+        - "-Wuninitialized"
+        - "-pedantic"
+        - "-pedantic-errors"
+    Clang:
+      compiler_flags:
+        - "-Og"
+        - "-g"
+        - "-Wall"
+        - "-Wextra"
+        - "-Wconversion"
+        - "-Wuninitialized"
+        - "-pedantic"
+        - "-pedantic-errors"
+    MSVC:
+      compiler_flags:
+        - /Od
+        - /W4
+        - /DEBUG
+
+  MinSizeRel:
+    Emscripten:
+      compiler_flags: [ -Oz ]
+    Clang:
+      compiler_flags:
+        - "-Os"
+      linker_flags:
+        - "-s"
+    AllCompilers:
+      defines:
+        - NDEBUG
+    MSVC:
+      compiler_flags:
+        - /O1
+        - /GL
+    GCC:
+      compiler_flags:
+        - "-Os"
+      linker_flags:
+        - "-s"
+
+  Release:
+    AllCompilers:
+      defines:
+        - NDEBUG
+    Emscripten:
+      compiler_flags: [ -O3 ]
+    GCC:
+      compiler_flags:
+        - "-O3"
+      linker_flags:
+        - "-s"
+    Clang:
+      compiler_flags:
+        - "-O3"
+      linker_flags:
+        - "-s"
+    MSVC:
+      compiler_flags:
+        - /O2
+        - /GL
+
+  RelWithDebInfo:
+    Emscripten:
+      compiler_flags: [ -O2, -g, -gsource-map ]
+      link_time_flags: [ --source-map-base, http://localhost:8080/build/bin/RelWithDebInfo ]
+    GCC:
+      compiler_flags:
+        - "-O2"
+        - "-g"
+    Clang:
+      compiler_flags:
+        - "-O2"
+        - "-g"
+    MSVC:
+      compiler_flags:
+        - /O2
+        - /DEBUG
+    AllCompilers:
+      defines:
+        - NDEBUG
