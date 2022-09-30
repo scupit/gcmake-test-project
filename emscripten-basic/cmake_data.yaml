@@ -42,7 +42,6 @@ build_configs:
   Debug:
     Emscripten:
       compiler_flags: [ -O0, -g, -gsource-map ]
-      link_time_flags: [ --source-map-base, http://localhost:8080/build/bin/Debug ]
     GCC:
       compiler_flags:
         - "-Og"
@@ -114,7 +113,6 @@ build_configs:
   RelWithDebInfo:
     Emscripten:
       compiler_flags: [ -O2, -g, -gsource-map ]
-      link_time_flags: [ --source-map-base, http://localhost:8080/build/bin/RelWithDebInfo ]
     GCC:
       compiler_flags:
         - "-O2"
