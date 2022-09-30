@@ -1,0 +1,12 @@
+---
+include_prefix: SOME_LIB
+description: Testing compiled lib support in Emscripten
+version: 0.0.1
+
+output:
+  some-lib:
+    output_type: CompiledLib
+    entry_file: some-lib.hpp
+    link:
+      private:
+        - fmt::fmt

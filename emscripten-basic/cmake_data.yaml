@@ -26,6 +26,8 @@ output:
   emscripten-basic:
     output_type: Executable
     entry_file: main.cpp
+    link:
+      - some-lib::some-lib
 
 global_defines:
   - ((emscripten)) EMSCRIPTEN
@@ -33,6 +35,8 @@ global_defines:
 predefined_dependencies:
   emscripten:
     git_tag: origin/develop
+  fmt:
+    git_tag: "9.1.0"
 
 build_configs:
   Debug:

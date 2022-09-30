@@ -2,6 +2,8 @@
 #include <filesystem>
 #include <iostream>
 
+#include "EMSCRIPTEN_BASIC/some-lib.hpp"
+
 int main() {
   const auto filePath = "resources/cool-file.txt";
 
@@ -16,7 +18,11 @@ int main() {
     std::cout << "Unable to find file \"" << filePath << "\"";
   }
 
-  std::cout << std::endl;
+  SomeClass("Nice, this is the class name").printName();
+
+  #ifdef EMSCRIPTEN
+    std::cout << std::endl;
+  #endif
 
   return EXIT_SUCCESS;
 }
