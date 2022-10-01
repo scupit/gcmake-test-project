@@ -1,0 +1,82 @@
+---
+name: emscripten-sdl-imgui
+include_prefix: EMSCRIPTEN_SDL_IMGUI
+description: Example project showing how to use both SDL2 and ImGUI with Emscripten
+vendor: scupit
+version: 0.0.1
+default_build_type: Debug
+
+languages:
+  C:
+    standard: 11
+  Cpp:
+    standard: 17
+
+supported_compilers:
+  - GCC
+  - Clang
+  - MSVC
+  - Emscripten
+
+global_defines:
+  - ((emscripten)) EMSCRIPTEN
+
+output:
+  emscripten-sdl-imgui:
+    output_type: Executable
+    entry_file: main.cpp
+    link:
+      - SDL2::{ SDL2, SDL2main }
+      - imgui::sdl_opengl3
+      - OpenGL::GL
+
+predefined_dependencies:
+  SDL2: { }
+  OpenGL: { }
+  imgui:
+    git_tag: v1.88
+
+build_configs:
+  Debug:
+    Emscripten:
+      compiler_flags: [ -O0, -g, -gsource-map ]
+    GCC:
+      compiler_flags:
+        - "-Og"
+        - "-g"
+        - "-Wall"
+        - "-Wextra"
+        - "-Wconversion"
+        - "-Wuninitialized"
+        - "-pedantic"
+        - "-pedantic-errors"
+    Clang:
+      compiler_flags:
+        - "-Og"
+        - "-g"
+        - "-Wall"
+        - "-Wextra"
+        - "-Wconversion"
+        - "-Wuninitialized"
+        - "-pedantic"
+        - "-pedantic-errors"
+    MSVC:
+      compiler_flags:
+        - /Od
+        - /W4
+        - /DEBUG
+
+  Release:
+    AllCompilers:
+      defines:
+        - NDEBUG
+    Emscripten:
+      compiler_flags: [ -O3 ]
+    GCC:
+      compiler_flags: [ -O3 ]
+      linker_flags: [ -s ]
+    Clang:
+      compiler_flags: [ -O3 ]
+      linker_flags: [ -s ]
+    MSVC:
+      compiler_flags: [ /O2, /GL ]
