@@ -1,71 +1,56 @@
-// This is a modified/combined version of the ImGUI-SDL2-OpenGL3 and ImGUI-Emscripten-OpenGL3 examples
-// at https://github.com/ocornut/imgui/tree/master/examples/example_sdl_opengl3
-// and https://github.com/ocornut/imgui/tree/master/examples/example_emscripten_opengl3
-// which works both natively and with Emscripten.
+// This is a modified version of the ImGUI-GLFW-OpenGL3 example at
+// https://github.com/ocornut/imgui/tree/master/examples/example_glfw_opengl3
+// Which works both natively and with Emscripten.
 
 #include "imgui.h"
+#include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
-#include "imgui_impl_sdl.h"
+
 #include <iostream>
 
-#include <SDL.h>
+#define GL_SILENCE_DEPRECATION
+
+#include <GLFW/glfw3.h>
 
 #ifdef EMSCRIPTEN
-  #include <SDL_opengles2.h>
   #include <emscripten.h>
-#else
-  #include <SDL_opengl.h>
 #endif
+
+static void glfw_error_callback(int error, const char* description)
+{
+  std::cerr << "GLFW Error " << error << ": " << description << '\n';
+}
 
 struct ProgramInfo
 {
-    SDL_Window*   window     = nullptr;
-    SDL_GLContext glContext  = nullptr;
-    bool          shouldExit = false;
+    GLFWwindow* window = nullptr;
 };
 
-// For clarity, our main loop code is declared at the end.
-static void main_loop(void*);
+static void mainLoop(void*);
 
 int main(int, char**)
 {
   ProgramInfo programInfo;
 
-  // Setup SDL
-  if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER | SDL_INIT_GAMECONTROLLER) != 0) {
-    std::cerr << "Error: " << SDL_GetError() << '\n';
-    return -1;
-  }
+  // Setup window
+  glfwSetErrorCallback(glfw_error_callback);
+  if (!glfwInit())
+    return 1;
 
-  // For the browser using Emscripten, we are going to use WebGL1 with GL ES2. See the Makefile. for requirement
-  // details. It is very likely the generated file won't work in many browsers. Firefox is the only sure bet, but I have
-  // successfully run this code on Chrome for Android for example.
   const char* glsl_version = "#version 100";
-  // const char* glsl_version = "#version 300 es";
-  SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, 0);
-  SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_ES);
-  SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 2);
-  SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 0);
+  glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 2);
+  glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
+  // glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);  // 3.2+ only
+  // glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);            // 3.0+ only
 
   // Create window with graphics context
-  SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
-  SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
-  SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, 8);
-  SDL_DisplayMode current;
-  SDL_GetCurrentDisplayMode(0, &current);
-  SDL_WindowFlags window_flags =
-      (SDL_WindowFlags) (SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE | SDL_WINDOW_ALLOW_HIGHDPI);
-
-  programInfo.window = SDL_CreateWindow(
-      "Dear ImGui Emscripten example", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1280, 720, window_flags);
-
-  programInfo.glContext = SDL_GL_CreateContext(programInfo.window);
-
-  if (!programInfo.glContext) {
-    std::cerr << "Failed to initialize WebGL context!\n";
+  programInfo.window = glfwCreateWindow(1280, 720, "Dear ImGui GLFW+OpenGL3 example", nullptr, nullptr);
+  if (programInfo.window == nullptr) {
     return 1;
   }
-  SDL_GL_SetSwapInterval(1);  // Enable vsync
+
+  glfwMakeContextCurrent(programInfo.window);
+  glfwSwapInterval(1);  // Enable vsync
 
   // Setup Dear ImGui context
   IMGUI_CHECKVERSION();
@@ -75,47 +60,39 @@ int main(int, char**)
   // io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
   // io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
 
-#ifdef EMSCRIPTEN
-  // For an Emscripten build we are disabling file-system access, so let's not attempt to do a fopen() of the imgui.ini
-  // file. You may manually call LoadIniSettingsFromMemory() to load settings from your own storage.
-  io.IniFilename = NULL;
-#endif
-
   // Setup Dear ImGui style
   ImGui::StyleColorsDark();
   // ImGui::StyleColorsLight();
 
   // Setup Platform/Renderer backends
-  ImGui_ImplSDL2_InitForOpenGL(programInfo.window, programInfo.glContext);
+  ImGui_ImplGlfw_InitForOpenGL(programInfo.window, true);
   ImGui_ImplOpenGL3_Init(glsl_version);
 
 #ifdef EMSCRIPTEN
-  // This function call won't return, and will engage in an infinite loop, processing events from the browser, and
-  // dispatching them.
-  emscripten_set_main_loop_arg(main_loop, &programInfo, 0, true);
+  emscripten_set_main_loop_arg(mainLoop, &programInfo, 0, true);
 #else
-  while (!programInfo.shouldExit) {
-    main_loop(&programInfo);
+  // Main loop
+  while (!glfwWindowShouldClose(programInfo.window)) {
+    mainLoop(&programInfo);
   }
 
+  // Cleanup
   ImGui_ImplOpenGL3_Shutdown();
-  ImGui_ImplSDL2_Shutdown();
+  ImGui_ImplGlfw_Shutdown();
   ImGui::DestroyContext();
 
-  SDL_GL_DeleteContext(programInfo.glContext);
-  SDL_DestroyWindow(programInfo.window);
-  SDL_Quit(); 
-  return EXIT_SUCCESS;
+  glfwDestroyWindow(programInfo.window);
+  glfwTerminate();
 #endif
+
+  return 0;
 }
 
-static void main_loop(void* infoPtr)
+static void mainLoop(void* infoPtr)
 {
   ProgramInfo* const programInfo = static_cast<ProgramInfo* const>(infoPtr);
 
-  ImGuiIO& io = ImGui::GetIO();
-
-  // Our state (make them static = more or less global) as a convenience to keep the example terse.
+  // Our state
   static bool   show_demo_window    = true;
   static bool   show_another_window = false;
   static ImVec4 clear_color         = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
@@ -127,32 +104,18 @@ static void main_loop(void* infoPtr)
   // - When io.WantCaptureKeyboard is true, do not dispatch keyboard input data to your main application, or
   // clear/overwrite your copy of the keyboard data. Generally you may always pass all inputs to dear imgui, and hide
   // them from your application based on those two flags.
-  SDL_Event event;
-  while (SDL_PollEvent(&event)) {
-    ImGui_ImplSDL2_ProcessEvent(&event);
-    // Capture events here, based on io.WantCaptureMouse and io.WantCaptureKeyboard
-
-#ifndef EMSCRIPTEN
-    if (event.type == SDL_QUIT) {
-      programInfo->shouldExit = true;
-    }
-    else if (event.type == SDL_WINDOWEVENT && event.window.event == SDL_WINDOWEVENT_CLOSE
-             && event.window.windowID == SDL_GetWindowID(programInfo->window))
-    {
-      programInfo->shouldExit = true;
-    }
-#endif
-  }
+  glfwPollEvents();
 
   // Start the Dear ImGui frame
   ImGui_ImplOpenGL3_NewFrame();
-  ImGui_ImplSDL2_NewFrame();
+  ImGui_ImplGlfw_NewFrame();
   ImGui::NewFrame();
 
   // 1. Show the big demo window (Most of the sample code is in ImGui::ShowDemoWindow()! You can browse its code to
   // learn more about Dear ImGui!).
-  if (show_demo_window)
+  if (show_demo_window) {
     ImGui::ShowDemoWindow(&show_demo_window);
+  }
 
   // 2. Show a simple window that we create ourselves. We use a Begin/End pair to create a named window.
   {
@@ -190,11 +153,13 @@ static void main_loop(void* infoPtr)
 
   // Rendering
   ImGui::Render();
-  SDL_GL_MakeCurrent(programInfo->window, programInfo->glContext);
-  glViewport(0, 0, static_cast<int>(io.DisplaySize.x), static_cast<int>(io.DisplaySize.y));
+  int display_w, display_h;
+  glfwGetFramebufferSize(programInfo->window, &display_w, &display_h);
+  glViewport(0, 0, display_w, display_h);
   glClearColor(
       clear_color.x * clear_color.w, clear_color.y * clear_color.w, clear_color.z * clear_color.w, clear_color.w);
   glClear(GL_COLOR_BUFFER_BIT);
   ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-  SDL_GL_SwapWindow(programInfo->window);
+
+  glfwSwapBuffers(programInfo->window);
 }

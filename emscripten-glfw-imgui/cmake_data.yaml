@@ -1,0 +1,132 @@
+---
+name: emscripten-glfw-imgui
+include_prefix: EMSCRIPTEN_GLFW_IMGUI
+description: GLFW + ImGUI example which also supports Emscripten
+vendor: scupit
+version: 0.0.1
+default_build_type: Debug
+
+languages:
+  C:
+    standard: 11
+  Cpp:
+    standard: 17
+
+supported_compilers:
+  - GCC
+  - Clang
+  - MSVC
+  - Emscripten
+
+output:
+  emscripten-glfw-imgui:
+    output_type: Executable
+    entry_file: main.cpp
+    link:
+      - imgui::glfw_opengl3
+      - GLFW::glfw
+      - OpenGL::GL
+
+global_defines:
+  - ((emscripten)) EMSCRIPTEN
+
+predefined_dependencies:
+  OpenGL: { }
+  imgui:
+    git_tag: v1.88
+  GLFW:
+    git_tag: "3.3.8"
+
+build_configs:
+  Debug:
+    GCC:
+      compiler_flags:
+        - "-Og"
+        - "-g"
+        - "-Wall"
+        - "-Wextra"
+        - "-Wconversion"
+        - "-Wuninitialized"
+        - "-pedantic"
+        - "-pedantic-errors"
+    Clang:
+      compiler_flags:
+        - "-Og"
+        - "-g"
+        - "-Wall"
+        - "-Wextra"
+        - "-Wconversion"
+        - "-Wuninitialized"
+        - "-pedantic"
+        - "-pedantic-errors"
+    MSVC:
+      compiler_flags:
+        - /Od
+        - /W4
+        - /DEBUG
+    Emscripten:
+      compiler_flags:
+        - "-O0"
+        - "-g"
+        - "-gsource-map"
+  Release:
+    AllCompilers:
+      defines:
+        - NDEBUG
+    GCC:
+      compiler_flags:
+        - "-O3"
+      linker_flags:
+        - "-s"
+    Clang:
+      compiler_flags:
+        - "-O3"
+      linker_flags:
+        - "-s"
+    MSVC:
+      compiler_flags:
+        - /O2
+    Emscripten:
+      compiler_flags:
+        - "-O3"
+  MinSizeRel:
+    AllCompilers:
+      defines:
+        - NDEBUG
+    GCC:
+      compiler_flags:
+        - "-Os"
+      linker_flags:
+        - "-s"
+    Clang:
+      compiler_flags:
+        - "-Os"
+      linker_flags:
+        - "-s"
+    MSVC:
+      compiler_flags:
+        - /O1
+    Emscripten:
+      compiler_flags:
+        - "-Oz"
+  RelWithDebInfo:
+    AllCompilers:
+      defines:
+        - NDEBUG
+    GCC:
+      compiler_flags:
+        - "-O2"
+        - "-g"
+    Clang:
+      compiler_flags:
+        - "-O2"
+        - "-g"
+    MSVC:
+      compiler_flags:
+        - /O2
+        - /DEBUG
+    Emscripten:
+      compiler_flags:
+        - "-O2"
+        - "-g"
+        - "-gsource-map"
