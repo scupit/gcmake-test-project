@@ -10,5 +10,6 @@ output:
     link:
       - OpenGL::GL
       - GLFW::glfw
-      - imgui::glfw_opengl3
+      - imgui::{ glfw_opengl3, freetype_extension }
+      - FreeType::freetype
       - fmt::fmt

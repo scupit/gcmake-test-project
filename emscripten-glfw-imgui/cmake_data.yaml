@@ -23,15 +23,18 @@ output:
     output_type: Executable
     entry_file: main.cpp
     link:
-      - imgui::glfw_opengl3
+      - imgui::{ glfw_opengl3, freetype_extension }
       - GLFW::glfw
       - OpenGL::GL
+      - FreeType::freetype
 
 global_defines:
   - ((emscripten)) EMSCRIPTEN
 
 predefined_dependencies:
   OpenGL: { }
+  FreeType:
+    git_tag: VER-2-12-1
   imgui:
     git_tag: v1.88
   GLFW:

@@ -27,12 +27,15 @@ output:
     entry_file: main.cpp
     link:
       - SDL2::{ SDL2, SDL2main }
-      - imgui::sdl_opengl3
+      - imgui::{ sdl_opengl3, freetype_extension }
       - OpenGL::GL
+      - FreeType::freetype
 
 predefined_dependencies:
   SDL2: { }
   OpenGL: { }
+  FreeType:
+    git_tag: VER-2-12-1
   imgui:
     git_tag: v1.88
 

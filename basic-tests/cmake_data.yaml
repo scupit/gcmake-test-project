@@ -66,9 +66,9 @@ prebuild_config:
   link:
     - nlohmann_json::nlohmann_json
 
-# gcmake_dependencies:
-
 predefined_dependencies:
+  FreeType:
+    git_tag: VER-2-12-1
   imgui:
     git_tag: v1.88
   argparse:
