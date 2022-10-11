@@ -24,6 +24,10 @@ output:
     entry_file: main.c
     link:
       - sqlite3::sqlite3
+    build_config:
+      AllConfigs:
+        Emscripten:
+          compiler_flags: [ -sEXIT_RUNTIME=1 ]
 
 global_defines:
   - ((emscripten)) EMSCRIPTEN

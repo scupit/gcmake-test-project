@@ -1,0 +1,3 @@
+This dummy file ensures the resources dir is always copied and used in the Emscripten build. This is
+necessary because 'resources/USING_SQLITE' needs to exist in the virtual filesystem in order for
+a database fileto be created successfully.
