@@ -1,0 +1,126 @@
+---
+name: using-sqlite
+include_prefix: USING_SQLITE
+description: Testing SQLITE3 support with the URL download method
+vendor: scupit
+version: 0.0.1
+default_build_type: Debug
+
+languages:
+  C:
+    standard: 11
+  Cpp:
+    standard: 17
+
+supported_compilers:
+  - GCC
+  - Clang
+  - MSVC
+  - Emscripten
+
+output:
+  using-sqlite:
+    output_type: Executable
+    entry_file: main.c
+    link:
+      - sqlite3::sqlite3
+
+global_defines:
+  - ((emscripten)) EMSCRIPTEN
+  - ((windows)) TARGETING_WINDOWS=1
+
+predefined_dependencies:
+  sqlite3:
+    file_version: v3.39.4
+
+build_configs:
+  Debug:
+    GCC:
+      compiler_flags:
+        - "-Og"
+        - "-g"
+        - "-Wall"
+        - "-Wextra"
+        - "-Wconversion"
+        - "-Wuninitialized"
+        - "-pedantic"
+        - "-pedantic-errors"
+    Clang:
+      compiler_flags:
+        - "-Og"
+        - "-g"
+        - "-Wall"
+        - "-Wextra"
+        - "-Wconversion"
+        - "-Wuninitialized"
+        - "-pedantic"
+        - "-pedantic-errors"
+    MSVC:
+      compiler_flags:
+        - /Od
+        - /W4
+        - /DEBUG
+    Emscripten:
+      compiler_flags:
+        - "-O0"
+        - "-g"
+        - "-gsource-map"
+  Release:
+    AllCompilers:
+      defines:
+        - NDEBUG
+    GCC:
+      compiler_flags:
+        - "-O3"
+        - "-s"
+    Clang:
+      compiler_flags:
+        - "-O3"
+        - "-s"
+    MSVC:
+      compiler_flags:
+        - /O2
+    Emscripten:
+      compiler_flags:
+        - "-O3"
+  MinSizeRel:
+    AllCompilers:
+      defines:
+        - NDEBUG
+    GCC:
+      compiler_flags:
+        - "-Os"
+      linker_flags:
+        - "-s"
+    Clang:
+      compiler_flags:
+        - "-Os"
+      linker_flags:
+        - "-s"
+    MSVC:
+      compiler_flags:
+        - /O1
+    Emscripten:
+      compiler_flags:
+        - "-Oz"
+  RelWithDebInfo:
+    AllCompilers:
+      defines:
+        - NDEBUG
+    GCC:
+      compiler_flags:
+        - "-O2"
+        - "-g"
+    Clang:
+      compiler_flags:
+        - "-O2"
+        - "-g"
+    MSVC:
+      compiler_flags:
+        - /O2
+        - /DEBUG
+    Emscripten:
+      compiler_flags:
+        - "-O2"
+        - "-g"
+        - "-gsource-map"
