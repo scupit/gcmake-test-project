@@ -1,0 +1,110 @@
+---
+name: using-curl
+include_prefix: USING_CURL
+description: Test project for CURL support
+vendor: scupit
+version: 0.0.1
+
+default_build_type: Debug
+
+languages:
+  C:
+    standard: 11
+  Cpp:
+    standard: 17
+
+supported_compilers:
+  - GCC
+  - Clang
+  - MSVC
+
+output:
+  using-curl:
+    output_type: Executable
+    entry_file: main.cpp
+    link:
+      - CURL::libcurl
+      - fmt::fmt
+
+predefined_dependencies:
+  CURL: { }
+  fmt:
+    git_tag: "9.1.0"
+
+build_configs:
+  Debug:
+    GCC:
+      compiler_flags:
+        - "-Og"
+        - "-g"
+        - "-Wall"
+        - "-Wextra"
+        - "-Wconversion"
+        - "-Wuninitialized"
+        - "-pedantic"
+        - "-pedantic-errors"
+    Clang:
+      compiler_flags:
+        - "-Og"
+        - "-g"
+        - "-Wall"
+        - "-Wextra"
+        - "-Wconversion"
+        - "-Wuninitialized"
+        - "-pedantic"
+        - "-pedantic-errors"
+    MSVC:
+      compiler_flags:
+        - /Od
+        - /W4
+        - /DEBUG
+  Release:
+    AllCompilers:
+      defines:
+        - NDEBUG
+    GCC:
+      compiler_flags:
+        - "-O3"
+      linker_flags:
+        - "-s"
+    Clang:
+      compiler_flags:
+        - "-O3"
+      linker_flags:
+        - "-s"
+    MSVC:
+      compiler_flags:
+        - /O2
+  MinSizeRel:
+    AllCompilers:
+      defines:
+        - NDEBUG
+    GCC:
+      compiler_flags:
+        - "-Os"
+      linker_flags:
+        - "-s"
+    Clang:
+      compiler_flags:
+        - "-Os"
+      linker_flags:
+        - "-s"
+    MSVC:
+      compiler_flags:
+        - /O1
+  RelWithDebInfo:
+    AllCompilers:
+      defines:
+        - NDEBUG
+    GCC:
+      compiler_flags:
+        - "-O2"
+        - "-g"
+    Clang:
+      compiler_flags:
+        - "-O2"
+        - "-g"
+    MSVC:
+      compiler_flags:
+        - /O2
+        - /DEBUG
