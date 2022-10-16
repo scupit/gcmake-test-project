@@ -112,6 +112,7 @@ predefined_dependencies:
     git_tag: v0.8.1
   spdlog:
     git_tag: v1.10.0
+  ZLIB: { }
 
 build_configs:
   Debug:
