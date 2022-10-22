@@ -1,0 +1,12 @@
+---
+include_prefix: THE_LIB
+description: "This lib shouldn't be linked to the executable"
+version: 0.0.1
+
+output:
+  the-lib:
+    output_type: CompiledLib
+    entry_file: the-lib.hpp
+    link:
+      private:
+        - fmt::fmt
