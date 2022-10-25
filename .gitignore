@@ -11,3 +11,4 @@ copied_json.json
 build/
 dep/
 external/
+install-deb-development-packages.sh
