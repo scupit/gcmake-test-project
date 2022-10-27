@@ -1,0 +1,128 @@
+---
+name: emscripten-custom-html
+include_prefix: EMSCRIPTEN_CUSTOM_HTML
+description: Emscripten project which uses a custom HTML shell file
+vendor: scupit
+version: 0.0.1
+default_build_type: Debug
+
+languages:
+  C:
+    standard: 11
+  Cpp:
+    standard: 17
+
+supported_compilers:
+  - GCC
+  - Clang
+  - MSVC
+  - Emscripten
+
+output:
+  do-things:
+    output_type: Executable
+    entry_file: main.cpp
+    emscripten_html_shell: custom-shell.html
+    link:
+      - FTXUI::{ dom, screen }
+
+global_defines:
+  - ((emscripten)) EMSCRIPTEN
+
+predefined_dependencies:
+  FTXUI:
+    git_tag: v3.0.0
+
+build_configs:
+  Debug:
+    GCC:
+      compiler_flags:
+        - "-Og"
+        - "-g"
+        - "-Wall"
+        - "-Wextra"
+        - "-Wconversion"
+        - "-Wuninitialized"
+        - "-pedantic"
+        - "-pedantic-errors"
+    Clang:
+      compiler_flags:
+        - "-Og"
+        - "-g"
+        - "-Wall"
+        - "-Wextra"
+        - "-Wconversion"
+        - "-Wuninitialized"
+        - "-pedantic"
+        - "-pedantic-errors"
+    MSVC:
+      compiler_flags:
+        - /Od
+        - /W4
+        - /DEBUG
+    Emscripten:
+      compiler_flags:
+        - "-O0"
+        - "-g"
+        - "-gsource-map"
+  Release:
+    AllCompilers:
+      defines:
+        - NDEBUG
+    GCC:
+      compiler_flags:
+        - "-O3"
+      linker_flags:
+        - "-s"
+    Clang:
+      compiler_flags:
+        - "-O3"
+      linker_flags:
+        - "-s"
+    MSVC:
+      compiler_flags:
+        - /O2
+    Emscripten:
+      compiler_flags:
+        - "-O3"
+  MinSizeRel:
+    AllCompilers:
+      defines:
+        - NDEBUG
+    GCC:
+      compiler_flags:
+        - "-Os"
+      linker_flags:
+        - "-s"
+    Clang:
+      compiler_flags:
+        - "-Os"
+      linker_flags:
+        - "-s"
+    MSVC:
+      compiler_flags:
+        - /O1
+    Emscripten:
+      compiler_flags:
+        - "-Oz"
+  RelWithDebInfo:
+    AllCompilers:
+      defines:
+        - NDEBUG
+    GCC:
+      compiler_flags:
+        - "-O2"
+        - "-g"
+    Clang:
+      compiler_flags:
+        - "-O2"
+        - "-g"
+    MSVC:
+      compiler_flags:
+        - /O2
+        - /DEBUG
+    Emscripten:
+      compiler_flags:
+        - "-O2"
+        - "-g"
+        - "-gsource-map"
