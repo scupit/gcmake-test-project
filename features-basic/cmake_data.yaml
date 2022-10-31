@@ -1,0 +1,145 @@
+---
+name: features-basic
+include_prefix: FEATURES_BASIC
+description: "Basic test project for the 'features' feature"
+vendor: scupit
+version: 0.0.1
+
+default_build_type: Debug
+
+languages:
+  C:
+    standard: 11
+  Cpp:
+    standard: 17
+
+features:
+  fmt:
+    # Try setting this to true, calling gcmake-rust, then rebuilding. You'll see that fmt will then be cloned,
+    # since it's then being used by the 'show-features' executable being built.
+    default: false
+  first-one:
+    default: false
+  second-one:
+    default: true
+    enables:
+      - first-one
+
+supported_compilers:
+  - GCC
+  - Clang
+  - MSVC
+  - Emscripten
+
+output:
+  show-features:
+    output_type: Executable
+    entry_file: main.cpp
+    link:
+      # Since dependency projects are "lazy loaded" (only loaded when used), the fmt dependency project
+      # itself will only be loaded when this feature is enabled.
+      - ((feature:fmt)) fmt::fmt
+
+global_defines:
+  - ((emscripten)) EMSCRIPTEN
+  - ((feature:fmt)) IS_FMT_ENABLED
+  - ((feature:first-one)) IS_FIRST_ONE_ENABLED
+  - ((feature:second-one)) IS_SECOND_ONE_ENABLED
+
+predefined_dependencies:
+  fmt:
+    git_tag: "9.1.0"
+
+build_configs:
+  Debug:
+    GCC:
+      compiler_flags:
+        - "-Og"
+        - "-g"
+        - "-Wall"
+        - "-Wextra"
+        - "-Wconversion"
+        - "-Wuninitialized"
+        - "-pedantic"
+        - "-pedantic-errors"
+    Clang:
+      compiler_flags:
+        - "-Og"
+        - "-g"
+        - "-Wall"
+        - "-Wextra"
+        - "-Wconversion"
+        - "-Wuninitialized"
+        - "-pedantic"
+        - "-pedantic-errors"
+    MSVC:
+      compiler_flags:
+        - /Od
+        - /W4
+        - /DEBUG
+    Emscripten:
+      compiler_flags:
+        - "-O0"
+        - "-g"
+        - "-gsource-map"
+  Release:
+    AllCompilers:
+      defines:
+        - NDEBUG
+    GCC:
+      compiler_flags:
+        - "-O3"
+      linker_flags:
+        - "-s"
+    Clang:
+      compiler_flags:
+        - "-O3"
+      linker_flags:
+        - "-s"
+    MSVC:
+      compiler_flags:
+        - /O2
+    Emscripten:
+      compiler_flags:
+        - "-O3"
+  MinSizeRel:
+    AllCompilers:
+      defines:
+        - NDEBUG
+    GCC:
+      compiler_flags:
+        - "-Os"
+      linker_flags:
+        - "-s"
+    Clang:
+      compiler_flags:
+        - "-Os"
+      linker_flags:
+        - "-s"
+    MSVC:
+      compiler_flags:
+        - /O1
+    Emscripten:
+      compiler_flags:
+        - "-Oz"
+  RelWithDebInfo:
+    AllCompilers:
+      defines:
+        - NDEBUG
+    GCC:
+      compiler_flags:
+        - "-O2"
+        - "-g"
+    Clang:
+      compiler_flags:
+        - "-O2"
+        - "-g"
+    MSVC:
+      compiler_flags:
+        - /O2
+        - /DEBUG
+    Emscripten:
+      compiler_flags:
+        - "-O2"
+        - "-g"
+        - "-gsource-map"
