@@ -16,12 +16,12 @@ languages:
 features:
   use-the-lib:
     default: true
-
-  # TODO: Allow features to enable dependency features.
-  # use-fmt:
-  #   default: true
-  #   enables:
-  #     - other-features-project/use-fmt
+    enables:
+      - use-fmt
+  use-fmt:
+    default: false
+    enables:
+      - features-lib/use-fmt
 
 supported_compilers:
   - GCC
