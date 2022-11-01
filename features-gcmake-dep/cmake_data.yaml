@@ -1,7 +1,7 @@
 ---
-name: features-basic
-include_prefix: FEATURES_BASIC
-description: "Basic test project for the 'features' feature"
+name: features-gcmake-dep
+include_prefix: FEATURES_GCMAKE_DEP
+description: Managing features of a GCMake dependency
 vendor: scupit
 version: 0.0.1
 
@@ -14,16 +14,14 @@ languages:
     standard: 17
 
 features:
-  fmt:
-    # Try setting this to true, calling gcmake-rust, then rebuilding. You'll see that fmt will then be cloned,
-    # since it's then being used by the 'show-features' executable being built.
-    default: false
-  first-one:
-    default: false
-  second-one:
+  use-the-lib:
     default: true
-    enables:
-      - first-one
+
+  # TODO: Allow features to enable dependency features.
+  # use-fmt:
+  #   default: true
+  #   enables:
+  #     - other-features-project/use-fmt
 
 supported_compilers:
   - GCC
@@ -32,23 +30,23 @@ supported_compilers:
   - Emscripten
 
 output:
-  show-features:
+  features-gcmake-dep:
     output_type: Executable
     entry_file: main.cpp
     link:
-      # Since dependency projects are "lazy loaded" (only loaded when used), the fmt dependency project
-      # itself will only be loaded when this feature is enabled.
-      - ((feature:fmt)) fmt::fmt
+      - ((feature:use-the-lib)) features-lib::features-lib
 
 global_defines:
   - ((emscripten)) EMSCRIPTEN
-  - ((feature:fmt)) IS_FMT_ENABLED
-  - ((feature:first-one)) IS_FIRST_ONE_ENABLED
-  - ((feature:second-one)) IS_SECOND_ONE_ENABLED
+  - ((feature:use-the-lib)) USING_THE_FEATURES_LIB
 
-predefined_dependencies:
-  fmt:
-    git_tag: "9.1.0"
+gcmake_dependencies:
+  features-lib:
+    repo_url: git@github.com:scupit/gcmake-test-project-features-basic.git
+    git_tag: develop
+    use_default_features: false
+    features:
+      - first-one
 
 build_configs:
   Debug:

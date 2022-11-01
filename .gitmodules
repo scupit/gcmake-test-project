@@ -1,0 +1,3 @@
+[submodule "basic-features"]
+	path = basic-features
+	url = git@github.com:scupit/gcmake-test-project-features-basic.git
