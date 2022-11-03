@@ -113,6 +113,8 @@ predefined_dependencies:
   spdlog:
     git_tag: v1.10.0
   ZLIB: { }
+  re2:
+    git_tag: "2022-06-01"
 
 build_configs:
   Debug:

@@ -1,0 +1,11 @@
+include_prefix: USING_RE2
+description: Subproject for testing re2 library support
+version: 0.0.1
+
+output:
+  using-re2:
+    output_type: Executable
+    entry_file: main.cpp
+    link:
+      - re2::re2
+      - fmt::fmt
