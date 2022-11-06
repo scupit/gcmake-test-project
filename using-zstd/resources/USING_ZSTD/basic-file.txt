@@ -1,0 +1,2 @@
+Basic txt file which should be used for testing compression and decompression.
+Multiple lines even... very fancy.

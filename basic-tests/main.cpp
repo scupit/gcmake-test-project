@@ -1,9 +1,9 @@
 #include <iostream>
 
 #include "CGEN_TEST/SomeClass.hpp"
-#include "build_info.hpp"
-#include "dll-lib.hpp"
-#include "toggle-lib.hpp"
+#include "CGEN_TEST/build_info.hpp"
+#include "CGEN_TEST/dll-lib.hpp"
+#include "CGEN_TEST/toggle-lib.hpp"
 
 #ifndef GLOBAL_DEF
   #define GLOBAL_DEF "Not defined globally"
