@@ -1,0 +1,8 @@
+include_prefix: FILE_MANIP
+description: File system manipulation functions for use from C
+version: 0.0.1
+
+output:
+  file-manip:
+    output_type: StaticLib
+    entry_file: file-manip.h

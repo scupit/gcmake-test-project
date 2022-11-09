@@ -1,0 +1,114 @@
+name: using-brotli
+include_prefix: USING_BROTLI
+description: Example project for Brotli support
+vendor: scupit
+version: 0.0.1
+
+default_build_type: Debug
+
+languages:
+  C:
+    standard: 11
+  Cpp:
+    standard: 17
+
+supported_compilers:
+  - GCC
+  - Clang
+  - MSVC
+
+output:
+  compress:
+    output_type: Executable
+    entry_file: compress.c
+    link:
+      - Brotli::br-encoder
+      - file-manip::file-manip
+
+  decompress:
+    output_type: Executable
+    entry_file: decompress.c
+    link:
+      - Brotli::br-decoder
+      - file-manip::file-manip
+
+predefined_dependencies:
+  Brotli: { }
+
+build_configs:
+  Debug:
+    GCC:
+      compiler_flags:
+      - -Og
+      - -g
+      - -Wall
+      - -Wextra
+      - -Wconversion
+      - -Wuninitialized
+      - -pedantic
+      - -pedantic-errors
+    Clang:
+      compiler_flags:
+      - -Og
+      - -g
+      - -Wall
+      - -Wextra
+      - -Wconversion
+      - -Wuninitialized
+      - -pedantic
+      - -pedantic-errors
+    MSVC:
+      compiler_flags:
+      - /Od
+      - /W4
+      - /DEBUG
+  Release:
+    AllCompilers:
+      defines:
+      - NDEBUG
+    GCC:
+      compiler_flags:
+      - -O3
+      linker_flags:
+      - -s
+    Clang:
+      compiler_flags:
+      - -O3
+      linker_flags:
+      - -s
+    MSVC:
+      compiler_flags:
+      - /O2
+  MinSizeRel:
+    AllCompilers:
+      defines:
+      - NDEBUG
+    GCC:
+      compiler_flags:
+      - -Os
+      linker_flags:
+      - -s
+    Clang:
+      compiler_flags:
+      - -Os
+      linker_flags:
+      - -s
+    MSVC:
+      compiler_flags:
+      - /O1
+  RelWithDebInfo:
+    AllCompilers:
+      defines:
+      - NDEBUG
+    GCC:
+      compiler_flags:
+      - -O2
+      - -g
+    Clang:
+      compiler_flags:
+      - -O2
+      - -g
+    MSVC:
+      compiler_flags:
+      - /O2
+      - /DEBUG
