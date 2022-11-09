@@ -1,0 +1,82 @@
+name: using-crow
+include_prefix: USING_CROW
+description: Test project which makes use of the Crow web framework
+vendor: scupit
+version: 0.0.1
+
+default_build_type: Debug
+
+languages:
+  C:
+    standard: 11
+  Cpp:
+    standard: 17
+
+supported_compilers:
+  - GCC
+  - Clang
+  - MSVC
+
+output:
+  using-crow:
+    output_type: Executable
+    entry_file: main.cpp
+    link:
+      - Crow::Crow
+      - asio::asio
+      - ZLIB::ZLIB
+      - OpenSSL::SSL
+
+predefined_dependencies:
+  asio: { }
+  ZLIB: { }
+  OpenSSL: { }
+  Crow:
+    # Important, read the Crow config README to see why this is currently required
+    # to use the master branch.
+    git_tag: master
+
+build_configs:
+  Debug:
+    GCC:
+      compiler_flags:
+      - -Og
+      - -g
+      - -Wall
+      - -Wextra
+      - -Wconversion
+      - -Wuninitialized
+      - -pedantic
+      - -pedantic-errors
+    Clang:
+      compiler_flags:
+      - -Og
+      - -g
+      - -Wall
+      - -Wextra
+      - -Wconversion
+      - -Wuninitialized
+      - -pedantic
+      - -pedantic-errors
+    MSVC:
+      compiler_flags:
+      - /Od
+      - /W4
+      - /DEBUG
+  Release:
+    AllCompilers:
+      defines:
+      - NDEBUG
+    GCC:
+      compiler_flags:
+      - -O3
+      linker_flags:
+      - -s
+    Clang:
+      compiler_flags:
+      - -O3
+      linker_flags:
+      - -s
+    MSVC:
+      compiler_flags:
+      - /O2
