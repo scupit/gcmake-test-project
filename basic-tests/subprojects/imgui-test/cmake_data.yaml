@@ -9,7 +9,7 @@ output:
     entry_file: main.cpp
     link:
       - OpenGL::GL
-      - GLFW::glfw
+      - GLFW::GLFW
       - imgui::{ glfw_opengl3, freetype_extension }
       - FreeType::freetype
       - fmt::fmt

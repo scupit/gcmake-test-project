@@ -14,4 +14,4 @@ output:
         - SDL2::SDL2
         - nlohmann_json::nlohmann_json
         - glm::glm
-        - GLFW::glfw
+        - GLFW::GLFW

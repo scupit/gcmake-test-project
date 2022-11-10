@@ -24,7 +24,7 @@ output:
     entry_file: main.cpp
     link:
       - imgui::{ glfw_opengl3, freetype_extension }
-      - GLFW::glfw
+      - GLFW::GLFW
       - OpenGL::GL
       - FreeType::freetype
 

@@ -22,14 +22,14 @@ output:
     output_type: Executable
     entry_file: compress.c
     link:
-      - Brotli::br-encoder
+      - Brotli::encoder
       - file-manip::file-manip
 
   decompress:
     output_type: Executable
     entry_file: decompress.c
     link:
-      - Brotli::br-decoder
+      - Brotli::decoder
       - file-manip::file-manip
 
 predefined_dependencies:

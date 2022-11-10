@@ -26,7 +26,7 @@ output:
     output_type: Executable
     entry_file: main.cpp
     link:
-      - SDL2::{ SDL2, SDL2main }
+      - SDL2::{ SDL2, main }
       - imgui::{ sdl_opengl3, freetype_extension }
       - OpenGL::GL
       - FreeType::freetype
