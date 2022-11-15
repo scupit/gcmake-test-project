@@ -9,7 +9,7 @@ output:
     entry_file: main.cpp
     windows_icon: icons/Smiley.ico
     link:
-      - wxWidgets::{ core, base }
+      - wxwidgets::{ core, base }
     build_config:
       AllConfigs:
         AllCompilers:

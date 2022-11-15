@@ -11,7 +11,7 @@ output:
       private:
         - stb::image
       public:
-        - SDL2::SDL2
+        - sdl2::sdl2
         - nlohmann_json::nlohmann_json
         - glm::glm
-        - GLFW::GLFW
+        - glfw::glfw

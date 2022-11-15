@@ -18,7 +18,7 @@ supported_compilers:
   - GCC
 
 test_framework:
-  Catch2:
+  catch2:
     git_tag: v3.1.0
 
 output:

@@ -22,16 +22,16 @@ output:
     output_type: Executable
     entry_file: main.cpp
     link:
-      - Crow::Crow
+      - crow::crow
       - asio::asio
-      - ZLIB::ZLIB
-      - OpenSSL::SSL
+      - zlib::zlib
+      - openssl::ssl
 
 predefined_dependencies:
   asio: { }
-  ZLIB: { }
-  OpenSSL: { }
-  Crow:
+  zlib: { }
+  openssl: { }
+  crow:
     # Important, read the Crow config README to see why this is currently required
     # to use the master branch.
     git_tag: master

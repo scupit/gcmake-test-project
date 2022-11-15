@@ -8,8 +8,8 @@ output:
     output_type: Executable
     entry_file: main.cpp
     link:
-      - OpenGL::GL
-      - GLFW::GLFW
+      - opengl::opengl
+      - glfw::glfw
       - imgui::{ glfw_opengl3, freetype_extension }
-      - FreeType::freetype
+      - freetype::freetype
       - fmt::fmt

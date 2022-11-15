@@ -24,13 +24,13 @@ output:
     entry_file: main.cpp
     emscripten_html_shell: custom-shell.html
     link:
-      - FTXUI::{ dom, screen }
+      - ftxui::{ dom, screen }
 
 global_defines:
   - ((emscripten)) EMSCRIPTEN
 
 predefined_dependencies:
-  FTXUI:
+  ftxui:
     git_tag: v3.0.0
 
 build_configs:

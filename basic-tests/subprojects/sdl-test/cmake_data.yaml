@@ -8,4 +8,4 @@ output:
     output_type: Executable
     entry_file: main.c
     link:
-      - SDL2::{ SDL2, main }
+      - sdl2::{ sdl2, main }

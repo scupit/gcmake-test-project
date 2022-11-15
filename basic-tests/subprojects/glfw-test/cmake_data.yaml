@@ -8,7 +8,6 @@ output:
     output_type: Executable
     entry_file: main.cpp
     link:
-      # OpenGL is needed to work with GLEW calls on Linux
-      - OpenGL::GL
-      - GLEW::shared
-      - GLFW::GLFW
+      - opengl::opengl
+      - glew::shared
+      - glfw::glfw

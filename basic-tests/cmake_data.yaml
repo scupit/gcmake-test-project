@@ -25,7 +25,7 @@ supported_compilers:
   - Clang
 
 test_framework:
-  Catch2:
+  catch2:
     git_tag: v3.0.1
 
 output:
@@ -41,8 +41,8 @@ output:
     link:
       # - SFML::{ window, ((windows)) main }
       # This is equivalent to the above. Note that above, SFML::system is transitively included
-      - SFML::{ system, window }
-      - ((windows)) SFML::main
+      - sfml::{ system, window }
+      - ((windows)) sfml::main
   Main:
     output_type: Executable 
     entry_file: ./main.cpp
@@ -67,7 +67,7 @@ prebuild_config:
     - nlohmann_json::nlohmann_json
 
 predefined_dependencies:
-  FreeType:
+  freetype:
     git_tag: VER-2-12-1
   imgui:
     file_version: v1.88.0
@@ -78,15 +78,15 @@ predefined_dependencies:
     git_tag: v1.12.1
   cxxopts:
     git_tag: v3.0.0
-  FTXUI:
+  ftxui:
     git_tag: v3.0.0
-  CLI11:
+  cli11:
     git_tag: v2.2.0
-  SFML:
+  sfml:
     git_tag: "2.6.x"
     # Change to file_version once SFML 2.6.x is released.
     # file_version: v2.5.1
-  SDL2: { }
+  sdl2: { }
   glm:
     git_tag: master
   nlohmann_json:
@@ -94,14 +94,14 @@ predefined_dependencies:
     # git_tag: v3.10.4
   stb:
     git_tag: master
-  GLFW:
+  glfw:
     git_tag: "3.3.7"
-  GLEW: { }
-  OpenGL: { }
+  glew: { }
+  opengl: { }
   fmt:
     git_tag: "8.1.1"
-  Threads: { }
-  wxWidgets: { }
+  threads: { }
+  wxwidgets: { }
   # Use master branch of yaml-cpp instead of the latest 'yaml-cpp-0.7.0'.
   # cmake_dependent_option currently force overrides YAML_CPP_INSTALL by hiding the option
   # completely (see the issue at https://gitlab.kitware.com/cmake/cmake/-/issues/22909)
@@ -112,7 +112,7 @@ predefined_dependencies:
     git_tag: v0.8.1
   spdlog:
     git_tag: v1.10.0
-  ZLIB: { }
+  zlib: { }
   re2:
     git_tag: "2022-06-01"
 

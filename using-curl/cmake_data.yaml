@@ -23,11 +23,11 @@ output:
     output_type: Executable
     entry_file: main.cpp
     link:
-      - CURL::libcurl
+      - curl::curl
       - fmt::fmt
 
 predefined_dependencies:
-  CURL: { }
+  curl: { }
   fmt:
     git_tag: "9.1.0"
 

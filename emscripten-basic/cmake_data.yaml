@@ -14,7 +14,7 @@ languages:
 
 prebuild_config:
   link:
-    - emscripten::nodeFS
+    - emscripten::nodefs
 
 supported_compilers:
   - GCC
