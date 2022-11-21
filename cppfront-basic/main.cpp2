@@ -1,0 +1,8 @@
+main: () -> int = {
+  printLine("noice, this is a line");
+	return EXIT_SUCCESS;
+}
+
+printLine: (line: std::string) = {
+	std::cout << line << '\n';
+}

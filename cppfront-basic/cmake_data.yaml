@@ -1,0 +1,84 @@
+name: cppfront-basic
+include_prefix: CPPFRONT_BASIC
+description: Testing basic cppfront cupport
+vendor: scupit
+version: 0.0.1
+
+default_build_type: Debug
+
+languages:
+  C:
+    standard: 11
+  Cpp:
+    standard: 17
+
+supported_compilers:
+  - GCC
+  - Clang
+  - MSVC
+  - Emscripten
+
+output:
+  cppfront-basic:
+    output_type: Executable
+    entry_file: main.cpp2
+
+global_defines:
+  - ((emscripten)) EMSCRIPTEN
+
+predefined_dependencies:
+  cppfront:
+    git_tag: master
+
+build_configs:
+  Debug:
+    GCC:
+      compiler_flags:
+        - -Og
+        - -g
+        - -Wall
+        - -Wextra
+        - -Wconversion
+        - -Wuninitialized
+        - -pedantic
+        - -pedantic-errors
+    Clang:
+      compiler_flags:
+        - -Og
+        - -g
+        - -Wall
+        - -Wextra
+        - -Wconversion
+        - -Wuninitialized
+        - -pedantic
+        - -pedantic-errors
+    MSVC:
+      compiler_flags:
+        - /Od
+        - /W4
+        - /DEBUG
+    Emscripten:
+      compiler_flags:
+        - -O0
+        - -g
+        - -gsource-map
+  Release:
+    AllCompilers:
+      defines:
+        - NDEBUG
+    GCC:
+      compiler_flags:
+        - -O3
+      linker_flags:
+        - -s
+    Clang:
+      compiler_flags:
+        - -O3
+      linker_flags:
+        - -s
+    MSVC:
+      compiler_flags:
+        - /O2
+    Emscripten:
+      compiler_flags:
+        - -O3

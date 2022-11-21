@@ -1,0 +1,4 @@
+main: () -> int = {
+  std::cout << "The pre-build script has run\n";
+  return EXIT_SUCCESS;
+}
