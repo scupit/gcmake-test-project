@@ -18,15 +18,24 @@ supported_compilers:
   - MSVC
   - Emscripten
 
+prebuild_config:
+  link:
+    - fmt::fmt
+
 output:
   cppfront-basic:
     output_type: Executable
     entry_file: main.cpp2
+    link:
+      - fmt::fmt
+      - cpp2-lib::cpp2-lib
 
 global_defines:
   - ((emscripten)) EMSCRIPTEN
 
 predefined_dependencies:
+  fmt:
+    git_tag: "9.1.0"
   cppfront:
     git_tag: master
 

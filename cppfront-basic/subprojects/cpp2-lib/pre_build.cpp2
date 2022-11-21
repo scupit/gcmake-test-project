@@ -1,0 +1,6 @@
+#include "fmt/core.h"
+
+main: () -> int = {
+  fmt::print("Subproject cpp2-lib pre-build script has run.\n");
+  return EXIT_SUCCESS;
+}

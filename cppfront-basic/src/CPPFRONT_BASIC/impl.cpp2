@@ -1,0 +1,7 @@
+#include "CPPFRONT_BASIC/impl.hpp"
+
+#include "fmt/core.h"
+
+printStringLn: (str: std::string) = {
+  fmt::print("{}\n", str);
+}

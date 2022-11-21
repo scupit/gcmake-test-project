@@ -1,8 +1,29 @@
+#include "CPPFRONT_BASIC/impl.hpp"
+#include "CPPFRONT_BASIC/cpp2-lib.hpp"
+#include "fmt/core.h"
+
 main: () -> int = {
-  printLine("noice, this is a line");
+  printStringLn("noice, this is a line");
+
+  initialValue := 12;
+  printValue("Initial", initialValue);
+  quadrupledValue(initialValue);
+
 	return EXIT_SUCCESS;
 }
 
-printLine: (line: std::string) = {
-	std::cout << line << '\n';
+printValue: (desc: std::string, value: _) = {
+  if desc.size() {
+    fmt::print("{} ", desc);
+  }
+
+  fmt::print("value: {}\n", value);
+}
+
+printValue: (value: _) = {
+  printValue("", value);
+}
+
+quadrupledValue: (i: int) = {
+  printValue("Quadrupled", doubleInt(doubleInt(i)));
 }

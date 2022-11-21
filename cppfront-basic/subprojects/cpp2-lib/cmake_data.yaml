@@ -1,0 +1,12 @@
+include_prefix: CPP2_LIB
+description: Example for library creation with cpp2
+version: 0.0.1
+
+prebuild_config:
+  link:
+    - fmt::fmt
+
+output:
+  cpp2-lib:
+    output_type: CompiledLib
+    entry_file: cpp2-lib.hpp
