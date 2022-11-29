@@ -1,0 +1,109 @@
+name: code-file-generation
+include_prefix: CODE_FILE_GENERATION
+description: Testing code generation in the pre-build script
+vendor: scupit
+version: 0.0.1
+
+default_build_type: Debug
+
+languages:
+  C:
+    standard: 11
+  Cpp:
+    standard: 17
+
+prebuild_config:
+  generated_code:
+    - noice.cpp2
+
+supported_compilers:
+  - GCC
+  - Clang
+  - MSVC
+
+output:
+  code-file-generation:
+    output_type: Executable
+    entry_file: main.cpp2
+
+predefined_dependencies:
+  cppfront:
+    git_tag: master
+
+build_configs:
+  Debug:
+    GCC:
+      compiler_flags:
+        - -Og
+        - -g
+        - -Wall
+        - -Wextra
+        - -Wconversion
+        - -Wuninitialized
+        - -pedantic
+        - -pedantic-errors
+    Clang:
+      compiler_flags:
+        - -Og
+        - -g
+        - -Wall
+        - -Wextra
+        - -Wconversion
+        - -Wuninitialized
+        - -pedantic
+        - -pedantic-errors
+    MSVC:
+      compiler_flags:
+        - /Od
+        - /W4
+        - /DEBUG
+  Release:
+    AllCompilers:
+      defines:
+        - NDEBUG
+    GCC:
+      compiler_flags:
+        - -O3
+      linker_flags:
+        - -s
+    Clang:
+      compiler_flags:
+        - -O3
+      linker_flags:
+        - -s
+    MSVC:
+      compiler_flags:
+        - /O2
+  MinSizeRel:
+    AllCompilers:
+      defines:
+        - NDEBUG
+    GCC:
+      compiler_flags:
+        - -Os
+      linker_flags:
+        - -s
+    Clang:
+      compiler_flags:
+        - -Os
+      linker_flags:
+        - -s
+    MSVC:
+      compiler_flags:
+        - /O1
+  RelWithDebInfo:
+    AllCompilers:
+      defines:
+        - NDEBUG
+    GCC:
+      compiler_flags:
+        - -O2
+        - -g
+    Clang:
+      compiler_flags:
+        - -O2
+        - -g
+    MSVC:
+      compiler_flags:
+        - /O2
+        - /DEBUG

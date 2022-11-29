@@ -1,0 +1,9 @@
+#include <fstream>
+
+main: () -> int = {
+  sourceFile := std::ofstream("src/CODE_FILE_GENERATION/noice.cpp2");
+  sourceFile << "#include \"CODE_FILE_GENERATION/noice.hpp\""
+    << "\nprintDoubled: (n: int) -> void = { std::cout << n << \" doubled is \" << n * 2 << '\\n'; }"
+    << std::endl;
+  return EXIT_SUCCESS;
+}

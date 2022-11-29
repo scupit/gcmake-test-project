@@ -1,0 +1,6 @@
+#include "CODE_FILE_GENERATION/noice.hpp"
+
+main: () -> int = {
+	printDoubled(4);
+	return EXIT_SUCCESS;
+}
