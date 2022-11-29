@@ -2,5 +2,6 @@
 
 main: () -> int = {
 	printDoubled(4);
+  std::cout << CODE_FILE_GEN_DEFINE << '\n';
 	return EXIT_SUCCESS;
 }

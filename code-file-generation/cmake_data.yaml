@@ -25,6 +25,8 @@ output:
   code-file-generation:
     output_type: Executable
     entry_file: main.cpp2
+    defines:
+      - CODE_FILE_GEN_DEFINE="This was defined using the 'defines' shortcut property."
 
 predefined_dependencies:
   cppfront:
