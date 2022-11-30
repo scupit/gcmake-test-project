@@ -62,6 +62,9 @@ global_properties:
   default_compiled_lib_type: Static
   ipo_enabled_by_default: true
 
+  # If you want to use lanauge extensions, they must be enabled explicitly.
+  are_language_extensions_enabled: true
+
 prebuild_config:
   link:
     - nlohmann_json::nlohmann_json
