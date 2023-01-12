@@ -8,9 +8,9 @@ version: 0.0.1
 default_build_type: Debug
 
 languages:
-  C:
+  c:
     standard: 11
-  Cpp:
+  cpp:
     standard: 17
 
 features:

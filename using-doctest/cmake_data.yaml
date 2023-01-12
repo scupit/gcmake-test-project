@@ -10,9 +10,9 @@ test_framework:
     git_tag: v2.4.9
 
 languages:
-  C:
+  c:
     standard: 11
-  Cpp:
+  cpp:
     standard: 17
 
 supported_compilers:
