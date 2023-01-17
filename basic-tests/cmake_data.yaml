@@ -5,6 +5,8 @@ vendor: "scupit"
 version: "0.0.1"
 default_build_type: Debug
 
+doc_generator: Doxygen
+
 installer_config:
   title: "GCMake Basic Tests"
   description: "Programs and libraries build while testing the GCMake tool"
@@ -70,6 +72,8 @@ prebuild_config:
     - nlohmann_json::nlohmann_json
 
 predefined_dependencies:
+  cppfront:
+    git_tag: master
   freetype:
     git_tag: VER-2-12-1
   imgui:

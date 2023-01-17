@@ -12,3 +12,5 @@ build/
 dep/
 external/
 install-deb-development-packages.sh
+
+Doxyfile
