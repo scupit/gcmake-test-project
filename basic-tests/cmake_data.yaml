@@ -5,7 +5,11 @@ vendor: "scupit"
 version: "0.0.1"
 default_build_type: Debug
 
-doc_generator: Doxygen
+documentation:
+  generator: Doxygen
+  # When false, implementation files such as .c and .cpp are documented as well.
+  # headers_only is 'true' by default.
+  headers_only: false
 
 installer_config:
   title: "GCMake Basic Tests"
@@ -19,7 +23,7 @@ languages:
   c:
     standard: 11
   cpp:
-    standard: 17
+    standard: 20
 
 supported_compilers:
   - GCC
