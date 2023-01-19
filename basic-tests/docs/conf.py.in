@@ -7,7 +7,7 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = "@PROJECT_NAME@"
-copyright = '2023, scupit'
+copyright = '2023, @PROJECT_VENDOR@'
 author = "@PROJECT_VENDOR@"
 release = "@PROJECT_VERSION@"
 
@@ -19,6 +19,12 @@ release = "@PROJECT_VERSION@"
 
 primary_domain = 'cpp'
 highlight_language = 'cpp'
+
+# Breathe (https://breathe.readthedocs.io/en/latest/) is the bridge between Sphinx and Doxygen. It
+# allows Sphinx to use Doxygen's output for its own method of documentation generation.
+# Exhale (https://exhale.readthedocs.io/en/latest/) uses 'Breathe' and Doxygen's output to
+# automatically generate a full API documentation hierarchy for your project.
+# For C/C++ documentation, Breathe is required, but Exhale is not.
 
 extensions = [
   # pip install breathe
