@@ -6,10 +6,10 @@ version: "0.0.1"
 default_build_type: Debug
 
 documentation:
-  generator: Doxygen
+  generator: Sphinx
   # When false, implementation files such as .c and .cpp are documented as well.
   # headers_only is 'true' by default.
-  headers_only: false
+  # headers_only: false
 
 installer_config:
   title: "GCMake Basic Tests"

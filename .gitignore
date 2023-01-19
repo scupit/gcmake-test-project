@@ -10,7 +10,9 @@ copied_json.json
 
 build/
 dep/
+**/docs/api/
 external/
 install-deb-development-packages.sh
 
 Doxyfile
+conf.py
