@@ -1,0 +1,14 @@
+include_prefix: PRIVATE_HEADERS_EXAMPLE
+description: Example project which makes use of private header files
+version: 0.0.1
+prebuild_config: null
+output:
+  private-headers-example:
+    requires_custom_main: null
+    output_type: CompiledLib
+    entry_file: private-headers-example.hpp
+    windows_icon: null
+    emscripten_html_shell: null
+    defines: null
+    build_config: null
+    link: null
