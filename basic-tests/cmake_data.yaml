@@ -57,6 +57,7 @@ output:
       - dll-lib::dll-lib
       - toggle-lib::toggle-lib
       - private-headers-example::private-headers-example
+      - complex-lib::complex-lib
 
 global_defines:
   - GLOBAL_DEF="Is globally defined"
