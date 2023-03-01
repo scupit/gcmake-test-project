@@ -7,8 +7,6 @@ version: 0.0.1
 default_build_type: Debug
 
 languages:
-  c:
-    standard: 11
   cpp:
     standard: 17
 
