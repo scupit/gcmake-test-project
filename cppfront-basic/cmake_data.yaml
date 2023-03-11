@@ -38,10 +38,6 @@ predefined_dependencies:
     git_tag: "9.1.0"
   cppfront:
     git_tag: master
-    # Temporary, until the multiple main 'args' function definition bug is fixed in the main repository.
-    options:
-      inner_repo_url: "git@github.com:scupit/cppfront.git"
-      inner_repo_revision: bugfix/multiple-definition-error
 
 build_configs:
   Debug:
