@@ -68,7 +68,10 @@ global_properties:
   # Example of setting the default compiled lib type to static. 'Shared' is the fallback default
   # when this property is not specified.
   default_compiled_lib_type: Static
-  ipo_enabled_by_default: true
+  ipo_enabled_by_default_for:
+    - Release
+    - RelWithDebInfo
+    - MinSizeRel
 
   # If you want to use lanauge extensions, they must be enabled explicitly.
   are_language_extensions_enabled: true
