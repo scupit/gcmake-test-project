@@ -95,7 +95,7 @@ predefined_dependencies:
   cxxopts:
     git_tag: v3.0.0
   ftxui:
-    git_tag: v3.0.0
+    git_tag: v4.0.0
   cli11:
     git_tag: v2.2.0
   sfml:
