@@ -8,9 +8,9 @@ default_build_type: Debug
 
 languages:
   c:
-    standard: 11
+    min_standard: 11
   cpp:
-    standard: 17
+    min_standard: 17
 
 supported_compilers:
   - GCC
