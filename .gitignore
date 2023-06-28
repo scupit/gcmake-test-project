@@ -8,6 +8,7 @@ CMakeLists.txt
 Config.cmake.in
 copied_json.json
 
+.gcmake/
 build/
 dep/
 **/docs/api/
