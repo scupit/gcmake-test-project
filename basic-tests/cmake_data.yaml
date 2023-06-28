@@ -99,9 +99,7 @@ predefined_dependencies:
   cli11:
     git_tag: v2.2.0
   sfml:
-    git_tag: "2.5.1"
-    # Change to file_version once SFML 2.6.x is released.
-    # file_version: v2.5.1
+    file_version: v2.6.0
   sdl2: { }
   glm:
     git_tag: master
