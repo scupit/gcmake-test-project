@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "Kokkos_core.hpp"
+#include "Kokkos_Core.hpp"
 #include "Kokkos_StdAlgorithms.hpp"
 
 void doWork();
