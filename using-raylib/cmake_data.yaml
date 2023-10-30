@@ -76,7 +76,6 @@ build_configs:
         - -gsource-map
       link_time_flags:
         - -sASSERTIONS=1
-        - -sASYNCIFY
   Release:
     AllCompilers:
       defines:
@@ -99,7 +98,6 @@ build_configs:
         - -O3
       link_time_flags:
         - -sASSERTIONS=0
-        - -sASYNCIFY
   MinSizeRel:
     AllCompilers:
       defines:
@@ -122,7 +120,6 @@ build_configs:
         - -Oz
       link_time_flags:
         - -sASSERTIONS=0
-        - -sASYNCIFY
   RelWithDebInfo:
     AllCompilers:
       defines:
@@ -146,4 +143,3 @@ build_configs:
         - -gsource-map
       link_time_flags:
         - -sASSERTIONS=0
-        - -sASYNCIFY
