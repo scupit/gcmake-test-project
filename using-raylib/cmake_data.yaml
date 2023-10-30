@@ -1,0 +1,149 @@
+name: using-raylib
+include_prefix: USING_RAYLIB
+description: Test project for raylib support
+vendor: scupit
+version: 0.0.1
+
+default_build_type: Debug
+
+languages:
+  c:
+    min_standard: "11"
+
+supported_compilers:
+  - GCC
+  - Clang
+  - MSVC
+  - Emscripten
+
+output:
+  using-raylib:
+    output_type: Executable
+    entry_file: main.c
+    link:
+      - raylib::raylib
+      - opengl::opengl
+      - glfw::glfw
+
+global_defines:
+  - ((emscripten)) EMSCRIPTEN
+
+global_properties:
+  ipo_enabled_by_default_for:
+    - Release
+    - MinSizeRel
+    - RelWithDebInfo
+
+predefined_dependencies:
+  opengl: {}
+  glfw:
+    git_tag: "3.3.8"
+  raylib:
+    file_version: v4.5.0
+
+build_configs:
+  Debug:
+    GCC:
+      compiler_flags:
+        - -O0
+        - -g
+        - -Wall
+        - -Wextra
+        - -Wconversion
+        - -Wuninitialized
+        - -pedantic
+        - -pedantic-errors
+    Clang:
+      compiler_flags:
+        - -O0
+        - -g
+        - -Wall
+        - -Wextra
+        - -Wconversion
+        - -Wuninitialized
+        - -pedantic
+        - -pedantic-errors
+    MSVC:
+      compiler_flags:
+        - /Od
+        - /W4
+        - /DEBUG
+        - /RTC1
+    Emscripten:
+      compiler_flags:
+        - -O0
+        - -g
+        - -gsource-map
+      link_time_flags:
+        - -sASSERTIONS=1
+        - -sASYNCIFY
+  Release:
+    AllCompilers:
+      defines:
+        - NDEBUG
+    GCC:
+      compiler_flags:
+        - -O3
+      linker_flags:
+        - -s
+    Clang:
+      compiler_flags:
+        - -O3
+      linker_flags:
+        - -s
+    MSVC:
+      compiler_flags:
+        - /O2
+    Emscripten:
+      compiler_flags:
+        - -O3
+      link_time_flags:
+        - -sASSERTIONS=0
+        - -sASYNCIFY
+  MinSizeRel:
+    AllCompilers:
+      defines:
+        - NDEBUG
+    GCC:
+      compiler_flags:
+        - -Os
+      linker_flags:
+        - -s
+    Clang:
+      compiler_flags:
+        - -Os
+      linker_flags:
+        - -s
+    MSVC:
+      compiler_flags:
+        - /O1
+    Emscripten:
+      compiler_flags:
+        - -Oz
+      link_time_flags:
+        - -sASSERTIONS=0
+        - -sASYNCIFY
+  RelWithDebInfo:
+    AllCompilers:
+      defines:
+        - NDEBUG
+    GCC:
+      compiler_flags:
+        - -O2
+        - -g
+    Clang:
+      compiler_flags:
+        - -O2
+        - -g
+    MSVC:
+      compiler_flags:
+        - /O2
+        - /DEBUG
+    Emscripten:
+      compiler_flags:
+        - -O2
+        - -g
+        - -gsource-map
+      link_time_flags:
+        - -sASSERTIONS=0
+        - -sASYNCIFY
