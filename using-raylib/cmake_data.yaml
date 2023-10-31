@@ -22,8 +22,6 @@ output:
     entry_file: main.c
     link:
       - raylib::raylib
-      - opengl::opengl
-      - glfw::glfw
 
 global_defines:
   - ((emscripten)) EMSCRIPTEN
