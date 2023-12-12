@@ -37,7 +37,10 @@ predefined_dependencies:
   glfw:
     git_tag: "3.3.8"
   raylib:
-    file_version: v4.5.0
+    # TODO: Raylib didn't include a patch number in their 5.0 release :(.
+    # Once I implement a way to account for that, change back to file_version.
+    # file_version: v5.0
+    git_tag: "5.0"
 
 build_configs:
   Debug:
