@@ -4,6 +4,11 @@ This is the largest test project for gcmake-rust. It aims to be an example of wh
 project setup could look like with GCMake, while also acting as the main test case for the majority
 of its features.
 
+## IMPORTANT NOTE
+
+Read the [cppfront configuration README](https://github.com/scupit/gcmake-dependency-configs/tree/develop/cppfront) before building this project.
+If you don't, your build will probably fail.
+
 ## Documentation generation
 
 Building this project's documentation requires a few extra programs, most of which can be downloaded using Python's `pip`:
