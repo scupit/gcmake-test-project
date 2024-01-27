@@ -3,6 +3,8 @@
 #include <cstdlib>
 
 #include <SDL2/SDL.h>
+
+#define GLM_ENABLE_EXPERIMENTAL true
 #include <glm/gtx/string_cast.hpp>
 
 #define STB_IMAGE_IMPLEMENTATION

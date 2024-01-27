@@ -1,5 +1,7 @@
 #include <iostream>
 
+#define GLM_ENABLE_EXPERIMENTAL true
+
 #include <glm/gtx/string_cast.hpp>
 #include <glm/mat4x4.hpp>
 
