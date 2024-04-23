@@ -36,7 +36,7 @@ predefined_dependencies:
   freetype:
     git_tag: VER-2-12-1
   imgui:
-    git_tag: v1.88
+    git_tag: v1.90.5
   glfw:
     git_tag: "3.3.8"
 
