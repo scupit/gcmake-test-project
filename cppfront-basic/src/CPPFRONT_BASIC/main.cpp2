@@ -1,5 +1,5 @@
 #include "CPPFRONT_BASIC/impl.hpp"
-#include "CPPFRONT_BASIC/cpp2-lib.hpp"
+#include "CPPFRONT_BASIC/CPP2_LIB/cpp2-lib.hpp"
 #include "fmt/core.h"
 
 main: () -> int = {
