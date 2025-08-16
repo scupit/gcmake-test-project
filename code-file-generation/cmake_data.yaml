@@ -10,7 +10,7 @@ languages:
   c:
     min_standard: 11
   cpp:
-    min_standard: 17
+    min_standard: 20
 
 prebuild_config:
   generated_code:
