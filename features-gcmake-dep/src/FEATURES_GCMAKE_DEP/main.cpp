@@ -1,7 +1,7 @@
 #include <iostream>
 
 #if USING_THE_FEATURES_LIB
-  #include "FEATURES_BASIC/features-lib.hpp"
+  #include "FEATURES_BASIC/FEATURES_LIB/lib.hpp"
 #endif
 
 int main() {
