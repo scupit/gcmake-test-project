@@ -21,7 +21,7 @@ supported_compilers:
 output:
   reference-parent:
     output_type: CompiledLib
-    entry_file: reference-parent.hpp
+    entry_file: lib.hpp
     link:
       private:
         - fmt::fmt
