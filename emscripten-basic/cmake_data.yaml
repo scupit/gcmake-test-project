@@ -29,6 +29,13 @@ output:
     link:
       - some-lib::some-lib
 
+  emscripten-second:
+    output_type: Executable
+    entry_file: main-2.cpp
+    link:
+      - some-lib::some-lib
+
+
 global_defines:
   - ((emscripten)) EMSCRIPTEN
 

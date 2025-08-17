@@ -6,7 +6,7 @@ version: 0.0.1
 output:
   some-lib:
     output_type: CompiledLib
-    entry_file: some-lib.hpp
+    entry_file: lib.hpp
     link:
       private:
         - fmt::fmt

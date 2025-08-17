@@ -17,9 +17,9 @@ int main() {
 
   const std::string resourcesDir =
     #ifdef EMSCRIPTEN
-      "my-root/resources";
+      "my-root/resources/EMSCRIPTEN_BASIC";
     #else
-      "resources";
+      "resources/EMSCRIPTEN_BASIC";
     #endif
 
   if (!std::filesystem::is_directory(resourcesDir)) {

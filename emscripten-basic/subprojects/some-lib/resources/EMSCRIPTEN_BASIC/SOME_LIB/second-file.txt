@@ -1,0 +1,1 @@
+A second file! Just testing new resource directory checks.
