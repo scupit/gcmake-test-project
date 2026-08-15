@@ -8,3 +8,4 @@ output:
     requires_custom_main: true
     output_type: Executable
     entry_file: main.cpp
+    inherits_from_exe: main

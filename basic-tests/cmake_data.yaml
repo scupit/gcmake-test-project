@@ -49,9 +49,9 @@ output:
       # This is equivalent to the above. Note that above, SFML::system is transitively included
       - sfml::{ system, window }
       - ((windows)) sfml::main
-  Main:
-    output_type: Executable 
-    entry_file: ./main.cpp
+  main:
+    output_type: Executable
+    entry_file: main.cpp
     link:
       - build-info-lib::build-info
       - dll-lib::dll-lib
